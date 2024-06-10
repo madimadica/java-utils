@@ -21,6 +21,23 @@ public class StringParser {
     }
 
     /**
+     * Attempts to parse the string argument into a byte.
+     * Any non-parseable value will result in {@link Optional#empty()}.
+     *
+     * @param s the {@code String} to be parsed.
+     * @param radix the radix to be used while parsing
+     * @return an {@link Optional<Byte>} represented by the string argument.
+     * @see Byte#parseByte(String, int)
+     */
+    public static Optional<Byte> parseByte(String s, int radix) {
+        try {
+            return Optional.of(Byte.parseByte(s, radix));
+        } catch (NumberFormatException ignored) {
+            return Optional.empty();
+        }
+    }
+
+    /**
      * Attempts to parse the string argument into a short.
      * Any non-parseable value will result in {@link Optional#empty()}.
      *
@@ -31,6 +48,23 @@ public class StringParser {
     public static Optional<Short> parseShort(String s) {
         try {
             return Optional.of(Short.parseShort(s));
+        } catch (NumberFormatException ignored) {
+            return Optional.empty();
+        }
+    }
+
+    /**
+     * Attempts to parse the string argument into a short.
+     * Any non-parseable value will result in {@link Optional#empty()}.
+     *
+     * @param s the {@code String} to be parsed.
+     * @param radix the radix to be used while parsing
+     * @return an {@link Optional<Short>} represented by the string argument.
+     * @see Short#parseShort(String, int)
+     */
+    public static Optional<Short> parseShort(String s, int radix) {
+        try {
+            return Optional.of(Short.parseShort(s, radix));
         } catch (NumberFormatException ignored) {
             return Optional.empty();
         }
@@ -53,6 +87,23 @@ public class StringParser {
     }
 
     /**
+     * Attempts to parse the string argument into an integer.
+     * Any non-parseable value will result in {@link Optional#empty()}.
+     *
+     * @param s the {@code String} to be parsed.
+     * @param radix the radix to be used while parsing
+     * @return an {@link Optional<Integer>} represented by the string argument.
+     * @see Integer#parseInt(String, int)
+     */
+    public static Optional<Integer> parseInteger(String s, int radix) {
+        try {
+            return Optional.of(Integer.parseInt(s, radix));
+        } catch (NumberFormatException ignored) {
+            return Optional.empty();
+        }
+    }
+
+    /**
      * Attempts to parse the string argument into a long.
      * Any non-parseable value will result in {@link Optional#empty()}.
      * 
@@ -63,6 +114,23 @@ public class StringParser {
     public static Optional<Long> parseLong(String s) {
         try {
             return Optional.of(Long.parseLong(s));
+        } catch (NumberFormatException ignored) {
+            return Optional.empty();
+        }
+    }
+
+    /**
+     * Attempts to parse the string argument into a long.
+     * Any non-parseable value will result in {@link Optional#empty()}.
+     *
+     * @param s the {@code String} to be parsed.
+     * @param radix the radix to be used while parsing
+     * @return an {@link Optional<Long>} represented by the string argument.
+     * @see Long#parseLong(String, int)
+     */
+    public static Optional<Long> parseLong(String s, int radix) {
+        try {
+            return Optional.of(Long.parseLong(s, radix));
         } catch (NumberFormatException ignored) {
             return Optional.empty();
         }
@@ -141,7 +209,6 @@ public class StringParser {
             return Optional.empty();
         }
     }
-    
 
 
 }
