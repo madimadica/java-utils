@@ -242,4 +242,51 @@ public abstract class CollectionParser {
         return Optional.of(results);
     }
 
+    /**
+     * Attempts to parse each element in the argument {@code Collection} into a list of Booleans.
+     * If any element fails to parse, an {@link Optional#empty()} is returned.
+     * Otherwise, a list of successfully parsed values is returned.<br>
+     * The return order is the same as the {@link Iterator} for the {@link Collection} argument.
+     *
+     * @param strings the {@link Collection} of strings to be parsed.
+     * @return an {@code Optional<List<Boolean>>} containing the parsed values.
+     * @see StringParser#parseBoolean(String)
+     */
+    public static Optional<List<Boolean>> parseBooleans(Collection<String> strings) {
+        List<Boolean> results = new ArrayList<>(strings.size());
+        for (String s : strings) {
+            Optional<Boolean> parsedValue = StringParser.parseBoolean(s);
+            if (parsedValue.isEmpty()) {
+                return Optional.empty();
+            } else {
+                results.add(parsedValue.get());
+            }
+        }
+        return Optional.of(results);
+    }
+
+    /**
+     * Attempts to parse each element in the argument {@code Collection} into a list of Booleans.
+     * If any element fails to parse, an {@link Optional#empty()} is returned.
+     * Otherwise, a list of successfully parsed values is returned.<br>
+     * The only parseable values are {@code 0} and {@code 1}.<br>
+     * The return order is the same as the {@link Iterator} for the {@link Collection} argument.
+     *
+     * @param strings the {@link Collection} of strings to be parsed.
+     * @return an {@code Optional<List<Boolean>>} containing the parsed values.
+     * @see StringParser#parseBit(String)
+     */
+    public static Optional<List<Boolean>> parseBits(Collection<String> strings) {
+        List<Boolean> results = new ArrayList<>(strings.size());
+        for (String s : strings) {
+            Optional<Boolean> parsedValue = StringParser.parseBit(s);
+            if (parsedValue.isEmpty()) {
+                return Optional.empty();
+            } else {
+                results.add(parsedValue.get());
+            }
+        }
+        return Optional.of(results);
+    }
+
 }
