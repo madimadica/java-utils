@@ -32,6 +32,30 @@ public abstract class CollectionParser {
     }
 
     /**
+     * Attempts to parse each element in the argument {@code Collection} into a list of Bytes.
+     * If any element fails to parse, an {@link Optional#empty()} is returned.
+     * Otherwise, a list of successfully parsed values is returned.<br>
+     * The return order is the same as the {@link Iterator} for the {@link Collection} argument.
+     *
+     * @param strings the {@link Collection} of strings to be parsed.
+     * @param radix the radix to be used while parsing
+     * @return an {@code Optional<List<Byte>>} containing the parsed values.
+     * @see StringParser#parseByte(String, int)
+     */
+    public static Optional<List<Byte>> parseBytes(Collection<String> strings, int radix) {
+        List<Byte> results = new ArrayList<>(strings.size());
+        for (String s : strings) {
+            Optional<Byte> parsedValue = StringParser.parseByte(s, radix);
+            if (parsedValue.isEmpty()) {
+                return Optional.empty();
+            } else {
+                results.add(parsedValue.get());
+            }
+        }
+        return Optional.of(results);
+    }
+
+    /**
      * Attempts to parse each element in the argument {@code Collection} into a list of Shorts.
      * If any element fails to parse, an {@link Optional#empty()} is returned.
      * Otherwise, a list of successfully parsed values is returned.<br>
@@ -45,6 +69,30 @@ public abstract class CollectionParser {
         List<Short> results = new ArrayList<>(strings.size());
         for (String s : strings) {
             Optional<Short> parsedValue = StringParser.parseShort(s);
+            if (parsedValue.isEmpty()) {
+                return Optional.empty();
+            } else {
+                results.add(parsedValue.get());
+            }
+        }
+        return Optional.of(results);
+    }
+
+    /**
+     * Attempts to parse each element in the argument {@code Collection} into a list of Shorts.
+     * If any element fails to parse, an {@link Optional#empty()} is returned.
+     * Otherwise, a list of successfully parsed values is returned.<br>
+     * The return order is the same as the {@link Iterator} for the {@link Collection} argument.
+     *
+     * @param strings the {@link Collection} of strings to be parsed.
+     * @param radix the radix to be used while parsing
+     * @return an {@code Optional<List<Short>>} containing the parsed values.
+     * @see StringParser#parseShort(String, int)
+     */
+    public static Optional<List<Short>> parseShorts(Collection<String> strings, int radix) {
+        List<Short> results = new ArrayList<>(strings.size());
+        for (String s : strings) {
+            Optional<Short> parsedValue = StringParser.parseShort(s, radix);
             if (parsedValue.isEmpty()) {
                 return Optional.empty();
             } else {
@@ -78,6 +126,30 @@ public abstract class CollectionParser {
     }
 
     /**
+     * Attempts to parse each element in the argument {@code Collection} into a list of Integers.
+     * If any element fails to parse, an {@link Optional#empty()} is returned.
+     * Otherwise, a list of successfully parsed values is returned.<br>
+     * The return order is the same as the {@link Iterator} for the {@link Collection} argument.
+     *
+     * @param strings the {@link Collection} of strings to be parsed.
+     * @param radix the radix to be used while parsing
+     * @return an {@code Optional<List<Integer>>} containing the parsed values.
+     * @see StringParser#parseInteger(String, int)
+     */
+    public static Optional<List<Integer>> parseIntegers(Collection<String> strings, int radix) {
+        List<Integer> results = new ArrayList<>(strings.size());
+        for (String s : strings) {
+            Optional<Integer> parsedValue = StringParser.parseInteger(s, radix);
+            if (parsedValue.isEmpty()) {
+                return Optional.empty();
+            } else {
+                results.add(parsedValue.get());
+            }
+        }
+        return Optional.of(results);
+    }
+
+    /**
      * Attempts to parse each element in the argument {@code Collection} into a list of Longs.
      * If any element fails to parse, an {@link Optional#empty()} is returned.
      * Otherwise, a list of successfully parsed values is returned.<br>
@@ -91,6 +163,30 @@ public abstract class CollectionParser {
         List<Long> results = new ArrayList<>(strings.size());
         for (String s : strings) {
             Optional<Long> parsedValue = StringParser.parseLong(s);
+            if (parsedValue.isEmpty()) {
+                return Optional.empty();
+            } else {
+                results.add(parsedValue.get());
+            }
+        }
+        return Optional.of(results);
+    }
+
+    /**
+     * Attempts to parse each element in the argument {@code Collection} into a list of Longs.
+     * If any element fails to parse, an {@link Optional#empty()} is returned.
+     * Otherwise, a list of successfully parsed values is returned.<br>
+     * The return order is the same as the {@link Iterator} for the {@link Collection} argument.
+     *
+     * @param strings the {@link Collection} of strings to be parsed.
+     * @param radix the radix to be used while parsing
+     * @return an {@code Optional<List<Long>>} containing the parsed values.
+     * @see StringParser#parseLong(String, int)
+     */
+    public static Optional<List<Long>> parseLongs(Collection<String> strings, int radix) {
+        List<Long> results = new ArrayList<>(strings.size());
+        for (String s : strings) {
+            Optional<Long> parsedValue = StringParser.parseLong(s, radix);
             if (parsedValue.isEmpty()) {
                 return Optional.empty();
             } else {
