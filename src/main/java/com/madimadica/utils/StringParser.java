@@ -2,7 +2,7 @@ package com.madimadica.utils;
 
 import java.util.Optional;
 
-public class StringParser {
+public abstract class StringParser {
 
     /**
      * Attempts to parse the string argument into a byte.
@@ -209,6 +209,5 @@ public class StringParser {
             return Optional.empty();
         }
     }
-
 
 }
