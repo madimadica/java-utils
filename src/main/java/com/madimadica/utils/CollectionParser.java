@@ -30,7 +30,7 @@ public abstract class CollectionParser {
         List<Byte> results = new ArrayList<>(strings.size());
         for (String s : strings) {
             Optional<Byte> parsedValue = StringParser.parseByte(s);
-            if (parsedValue.isEmpty()) {
+            if (!parsedValue.isPresent()) {
                 return Optional.empty();
             } else {
                 results.add(parsedValue.get());
@@ -54,7 +54,7 @@ public abstract class CollectionParser {
         List<Byte> results = new ArrayList<>(strings.size());
         for (String s : strings) {
             Optional<Byte> parsedValue = StringParser.parseByte(s, radix);
-            if (parsedValue.isEmpty()) {
+            if (!parsedValue.isPresent()) {
                 return Optional.empty();
             } else {
                 results.add(parsedValue.get());
@@ -77,7 +77,7 @@ public abstract class CollectionParser {
         List<Short> results = new ArrayList<>(strings.size());
         for (String s : strings) {
             Optional<Short> parsedValue = StringParser.parseShort(s);
-            if (parsedValue.isEmpty()) {
+            if (!parsedValue.isPresent()) {
                 return Optional.empty();
             } else {
                 results.add(parsedValue.get());
@@ -101,7 +101,7 @@ public abstract class CollectionParser {
         List<Short> results = new ArrayList<>(strings.size());
         for (String s : strings) {
             Optional<Short> parsedValue = StringParser.parseShort(s, radix);
-            if (parsedValue.isEmpty()) {
+            if (!parsedValue.isPresent()) {
                 return Optional.empty();
             } else {
                 results.add(parsedValue.get());
@@ -124,7 +124,7 @@ public abstract class CollectionParser {
         List<Integer> results = new ArrayList<>(strings.size());
         for (String s : strings) {
             Optional<Integer> parsedValue = StringParser.parseInteger(s);
-            if (parsedValue.isEmpty()) {
+            if (!parsedValue.isPresent()) {
                 return Optional.empty();
             } else {
                 results.add(parsedValue.get());
@@ -148,7 +148,7 @@ public abstract class CollectionParser {
         List<Integer> results = new ArrayList<>(strings.size());
         for (String s : strings) {
             Optional<Integer> parsedValue = StringParser.parseInteger(s, radix);
-            if (parsedValue.isEmpty()) {
+            if (!parsedValue.isPresent()) {
                 return Optional.empty();
             } else {
                 results.add(parsedValue.get());
@@ -171,7 +171,7 @@ public abstract class CollectionParser {
         List<Long> results = new ArrayList<>(strings.size());
         for (String s : strings) {
             Optional<Long> parsedValue = StringParser.parseLong(s);
-            if (parsedValue.isEmpty()) {
+            if (!parsedValue.isPresent()) {
                 return Optional.empty();
             } else {
                 results.add(parsedValue.get());
@@ -195,7 +195,7 @@ public abstract class CollectionParser {
         List<Long> results = new ArrayList<>(strings.size());
         for (String s : strings) {
             Optional<Long> parsedValue = StringParser.parseLong(s, radix);
-            if (parsedValue.isEmpty()) {
+            if (!parsedValue.isPresent()) {
                 return Optional.empty();
             } else {
                 results.add(parsedValue.get());
@@ -218,7 +218,7 @@ public abstract class CollectionParser {
         List<Float> results = new ArrayList<>(strings.size());
         for (String s : strings) {
             Optional<Float> parsedValue = StringParser.parseFloat(s);
-            if (parsedValue.isEmpty()) {
+            if (!parsedValue.isPresent()) {
                 return Optional.empty();
             } else {
                 results.add(parsedValue.get());
@@ -241,7 +241,7 @@ public abstract class CollectionParser {
         List<Double> results = new ArrayList<>(strings.size());
         for (String s : strings) {
             Optional<Double> parsedValue = StringParser.parseDouble(s);
-            if (parsedValue.isEmpty()) {
+            if (!parsedValue.isPresent()) {
                 return Optional.empty();
             } else {
                 results.add(parsedValue.get());
@@ -264,7 +264,7 @@ public abstract class CollectionParser {
         List<Boolean> results = new ArrayList<>(strings.size());
         for (String s : strings) {
             Optional<Boolean> parsedValue = StringParser.parseBoolean(s);
-            if (parsedValue.isEmpty()) {
+            if (!parsedValue.isPresent()) {
                 return Optional.empty();
             } else {
                 results.add(parsedValue.get());
@@ -288,7 +288,7 @@ public abstract class CollectionParser {
         List<Boolean> results = new ArrayList<>(strings.size());
         for (String s : strings) {
             Optional<Boolean> parsedValue = StringParser.parseBit(s);
-            if (parsedValue.isEmpty()) {
+            if (!parsedValue.isPresent()) {
                 return Optional.empty();
             } else {
                 results.add(parsedValue.get());
