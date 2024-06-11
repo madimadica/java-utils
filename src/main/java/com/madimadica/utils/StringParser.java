@@ -158,11 +158,15 @@ public abstract class StringParser {
         if (s == null) {
             return Optional.empty();
         }
-        return switch(s.toLowerCase()) {
-            case "true" -> Optional.of(Boolean.TRUE);
-            case "false" -> Optional.of(Boolean.FALSE);
-            default -> Optional.empty();
-        };
+        String lowercase = s.toLowerCase();
+        switch (lowercase) {
+            case "true":
+                return Optional.of(Boolean.TRUE);
+            case "false":
+                return Optional.of(Boolean.FALSE);
+            default:
+                return Optional.empty();
+        }
     }
 
     /**
@@ -178,11 +182,15 @@ public abstract class StringParser {
         if (s == null) {
             return Optional.empty();
         }
-        return switch(s.toLowerCase()) {
-            case "true" -> Optional.of(Boolean.TRUE);
-            case "false" -> Optional.of(Boolean.FALSE);
-            default -> Optional.empty();
-        };
+        String lowercase = s.toLowerCase();
+        switch (lowercase) {
+            case "1":
+                return Optional.of(Boolean.TRUE);
+            case "0":
+                return Optional.of(Boolean.FALSE);
+            default:
+                return Optional.empty();
+        }
     }
 
     /**
