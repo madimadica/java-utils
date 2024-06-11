@@ -2,7 +2,15 @@ package com.madimadica.utils;
 
 import java.util.Optional;
 
+/**
+ * Static utilities to parse Strings into Optional results.
+ */
 public abstract class StringParser {
+
+    /**
+     * Constructor to allow extension.
+     */
+    public StringParser() {}
 
     /**
      * Attempts to parse the string argument into a byte.
@@ -140,12 +148,11 @@ public abstract class StringParser {
      * Attempts to parse the string argument into a boolean.
      * Only the values {@code "true"} and {@code "false"} (case-insensitive) are mapped
      * to a {@link Boolean} value, otherwise the result is {@link Optional#empty()} (including for {@code null}).
-     *          
+     * <br>
+     * This differs from {@link Boolean#parseBoolean(String)}
+     * by separating a {@code false} return from an error ({@code Optional.empty()}).
      * @param s the {@code String} to be parsed.
      * @return an {@link Optional} {@code boolean} represented by the string argument.
-     * 
-     * @apiNote This differs from {@link Boolean#parseBoolean(String)}
-     *          by separating a {@code false} return from an error ({@code Optional.empty()}).
      */
     public static Optional<Boolean> parseBoolean(String s) {
         if (s == null) {

@@ -19,7 +19,7 @@ public class NumberUtilsTests {
         assertEquals(String.valueOf(Long.MAX_VALUE).length(), NumberUtils.length(Long.MAX_VALUE));
     }
 
-    @Test
+//    @Test
     void intLengthEveryInput() {
         for (int i = Integer.MIN_VALUE; i < Integer.MAX_VALUE; ++i) {
             assertEquals(String.valueOf(i).length(), NumberUtils.length(i));

@@ -6,7 +6,15 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Iterator;
 
+/**
+ * Utility class to parse Collections of Strings into Lists of parsed values.
+ */
 public abstract class CollectionParser {
+
+    /**
+     * Constructor to allow extension.
+     */
+    public CollectionParser() {}
 
     /**
      * Attempts to parse each element in the argument {@code Collection} into a list of Bytes.

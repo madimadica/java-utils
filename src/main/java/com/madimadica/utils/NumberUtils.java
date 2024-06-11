@@ -1,6 +1,14 @@
 package com.madimadica.utils;
 
-public class NumberUtils {
+/**
+ * Utilities for primitive numbers.
+ */
+public abstract class NumberUtils {
+
+    /**
+     * Constructor to allow extension.
+     */
+    public NumberUtils() {}
 
     /**
      * Computes the length of the base 10

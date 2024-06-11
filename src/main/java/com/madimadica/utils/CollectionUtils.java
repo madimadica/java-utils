@@ -4,7 +4,15 @@ import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+/**
+ * Utility class to wrap common Collection transformations.
+ */
 public abstract class CollectionUtils {
+
+    /**
+     * Constructor to allow extension.
+     */
+    public CollectionUtils() {}
 
     /**
      * Attempt to return the first element in the collection, according to its {@link Iterator}.
