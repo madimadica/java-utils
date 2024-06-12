@@ -47,14 +47,14 @@ public class CollectionUtilsTests {
 
     @Test
     void getFirst_NullArgument() {
-        assertTrue(CollectionUtils.getFirst(null).isEmpty());
+        assertFalse(CollectionUtils.getFirst(null).isPresent());
     }
 
     @Test
     void getFirst_NullElement() {
         List<Integer> testInput = new ArrayList<>();
         testInput.add(null);
-        assertTrue(CollectionUtils.getFirst(testInput).isEmpty());
+        assertFalse(CollectionUtils.getFirst(testInput).isPresent());
     }
 
     @Test
@@ -67,10 +67,9 @@ public class CollectionUtilsTests {
 
     @Test
     void map() {
-        List<Person> people = List.of(
-                new Person(1L, "John", "Smith"),
-                new Person(2L, "Bob", "Smith")
-        );
+        List<Person> people = new ArrayList<>();
+        people.add(new Person(1L, "John", "Smith"));
+        people.add(new Person(2L, "Bob", "Smith"));
         List<String> firstNames = CollectionUtils.map(people, Person::getFirstName);
         assertEquals(firstNames.size(), 2);
         assertEquals(firstNames.get(0), "John");
@@ -79,20 +78,18 @@ public class CollectionUtilsTests {
 
     @Test
     void mapToSet_OneToOne() {
-        List<Person> people = List.of(
-                new Person(1L, "John", "Smith"),
-                new Person(2L, "Bob", "Smith")
-        );
+        List<Person> people = new ArrayList<>();
+        people.add(new Person(1L, "John", "Smith"));
+        people.add(new Person(2L, "Bob", "Smith"));
         Set<String> firstNames = CollectionUtils.mapToSet(people, Person::getFirstName);
         assertEquals(firstNames.size(), 2);
     }
 
     @Test
     void mapToSet_ManyToOne() {
-        List<Person> people = List.of(
-                new Person(1L, "John", "Smith"),
-                new Person(2L, "Bob", "Smith")
-        );
+        List<Person> people = new ArrayList<>();
+        people.add(new Person(1L, "John", "Smith"));
+        people.add(new Person(2L, "Bob", "Smith"));
         Set<String> firstNames = CollectionUtils.mapToSet(people, Person::getLastName);
         assertEquals(firstNames.size(), 1);
     }
@@ -101,8 +98,9 @@ public class CollectionUtilsTests {
     void asMap() {
         Person john = new Person(1L, "John", "Smith");
         Person bob = new Person(2L, "Bob", "Smith");
-
-        List<Person> people = List.of(john, bob);
+        List<Person> people = new ArrayList<>();
+        people.add(john);
+        people.add(bob);
         Map<Long, Person> personLookup = CollectionUtils.asMap(people, Person::getId);
         assertEquals(personLookup.get(1L), john);
         assertEquals(personLookup.get(2L), bob);
@@ -113,8 +111,10 @@ public class CollectionUtilsTests {
         Person john = new Person(1L, "John", "Smith");
         Person bob = new Person(2L, "Bob", "Smith");
         Person bob2 = new Person(2L, "Bob2", "Smith2");
-
-        List<Person> people = List.of(john, bob, bob2);
+        List<Person> people = new ArrayList<>();
+        people.add(john);
+        people.add(bob);
+        people.add(bob2);
         assertThrows(IllegalStateException.class, () -> CollectionUtils.asMap(people, Person::getId));
     }
 
@@ -124,7 +124,10 @@ public class CollectionUtilsTests {
         Person bob = new Person(2L, "Bob", "Smith");
         Person bob2 = new Person(2L, "Tim", "Cook");
 
-        List<Person> people = List.of(john, bob, bob2);
+        List<Person> people = new ArrayList<>();
+        people.add(john);
+        people.add(bob);
+        people.add(bob2);
         Map<String, List<Person>> peopleByLastName = CollectionUtils.groupBy(people, Person::getLastName);
         assertEquals(peopleByLastName.get("Smith").size(), 2);
         assertEquals(peopleByLastName.get("Cook").size(), 1);
@@ -139,8 +142,10 @@ public class CollectionUtilsTests {
         Person john = new Person(1L, "John", "Smith");
         Person bob = new Person(2L, "Bob", "Smith");
         Person bob2 = new Person(2L, "Tim", "Cook");
-
-        Set<Person> people = Set.of(john, bob, bob2);
+        Set<Person> people = new HashSet<>();
+        people.add(john);
+        people.add(bob);
+        people.add(bob2);
         List<Person> result = CollectionUtils.toList(people);
         assertEquals(result.size(), 3);
         for (Person p : result) {

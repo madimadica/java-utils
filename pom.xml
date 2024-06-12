@@ -6,7 +6,7 @@
 
     <groupId>com.madimadica</groupId>
     <artifactId>utils</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
 
     <name>${project.groupId}:${project.artifactId}</name>
     <description>Utilities focused on String and Collection manipulation to shorten common patterns, or to add Optional returns.</description>
@@ -56,8 +56,8 @@
     </dependencies>
 
     <properties>
-        <maven.compiler.source>21</maven.compiler.source>
-        <maven.compiler.target>21</maven.compiler.target>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -101,7 +101,7 @@
                 </executions>
                 <configuration>
                     <links>
-                        <link>https://docs.oracle.com/javase/21/docs/api/</link>
+                        <link>https://docs.oracle.com/javase/8/docs/api/</link>
                     </links>
                 </configuration>
             </plugin>
