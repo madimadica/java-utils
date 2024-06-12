@@ -274,7 +274,7 @@ public abstract class Lists {
             Objects.requireNonNull(t);
         }
         result.addAll(originalCollection);
-        return result;
+        return Collections.unmodifiableList(result);
     }
 
 
@@ -458,7 +458,7 @@ public abstract class Lists {
     public static <T> List<T> copyOfNullable(Collection<? extends T> originalCollection) {
         List<T> result = new ArrayList<>(originalCollection.size());
         result.addAll(originalCollection);
-        return result;
+        return Collections.unmodifiableList(result);
     }
 
 }
