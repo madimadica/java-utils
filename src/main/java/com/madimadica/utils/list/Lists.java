@@ -26,6 +26,7 @@ public abstract class Lists {
      * @param elements to insert into the list
      * @return immutable list containing the argument elements in the given order.
      * @param <T> expected type of each element.
+     * @throws NullPointerException if any element is null
      * @since 1.1
      */
     @SuppressWarnings("unchecked")
