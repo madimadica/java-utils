@@ -1,5 +1,6 @@
 package com.madimadica.utils;
 
+import com.madimadica.utils.list.Lists;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -11,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * Tests for {@link Lists}
  */
 public class TestLists {
-    
+
     @Test
     void emptyList() {
         List<String> list = Lists.of();
