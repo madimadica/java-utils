@@ -1,4 +1,4 @@
-package com.madimadica.utils;
+package com.madimadica.utils.list;
 
 import com.madimadica.utils.list.Lists;
 import org.junit.jupiter.api.Test;
