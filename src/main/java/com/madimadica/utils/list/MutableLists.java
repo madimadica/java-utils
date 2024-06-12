@@ -12,7 +12,7 @@ import java.util.*;
  * @see Lists
  * @since 1.1
  */
-public class MutableLists {
+public abstract class MutableLists {
 
     /**
      * Allow for user extension.
