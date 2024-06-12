@@ -31,8 +31,8 @@ public abstract class Lists {
         List<T> result = new ArrayList<>(elements.length);
         for (Object object : elements) {
             Objects.requireNonNull(object);
-            result.add((T) object);
         }
+        result.addAll(Arrays.asList((T[]) elements));
         return Collections.unmodifiableList(result);
     }
 
@@ -47,10 +47,7 @@ public abstract class Lists {
     private static <T> List<T> immutableListFactoryNullable(Object... elements) {
         assert elements.getClass() == Object[].class;
         List<T> result = new ArrayList<>(elements.length);
-        for (Object object : elements) {
-            Objects.requireNonNull(object);
-            result.add((T) object);
-        }
+        result.addAll(Arrays.asList((T[]) elements));
         return Collections.unmodifiableList(result);
     }
 
@@ -253,8 +250,8 @@ public abstract class Lists {
         List<T> result = new ArrayList<>(elements.length);
         for (T t : elements) {
             Objects.requireNonNull(t);
-            result.add(t);
         }
+        result.addAll(Arrays.asList(elements));
         return Collections.unmodifiableList(result);
     }
 
@@ -460,5 +457,5 @@ public abstract class Lists {
         result.addAll(originalCollection);
         return result;
     }
-    
+
 }
