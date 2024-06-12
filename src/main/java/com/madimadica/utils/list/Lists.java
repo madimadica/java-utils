@@ -3,11 +3,14 @@ package com.madimadica.utils.list;
 import java.util.*;
 
 /**
- * Static helper methods for dealing with Lists
+ * Static helper methods for dealing with Lists.
+ * Return values are immutable (unmodifiable) lists.
  * <br>
  * Provides implemented default methods on List in Java 9+.
  *
- * @see java.util.List
+ * @see List
+ * @see MutableLists
+ * @since 1.1
  */
 public abstract class Lists {
 
