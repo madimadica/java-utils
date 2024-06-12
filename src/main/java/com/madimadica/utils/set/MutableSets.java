@@ -10,7 +10,7 @@ import java.util.*;
  * @see Sets
  * @since 1.1
  */
-public class MutableSets {
+public abstract class MutableSets {
 
     /**
      * Allow for user extension.
@@ -61,7 +61,7 @@ public class MutableSets {
      * @since 1.1
      */
     public static <T> Set<T> of() {
-        return Collections.emptySet();
+        return new HashSet<>();
     }
 
     /**
