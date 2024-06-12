@@ -233,6 +233,7 @@ public class TestLists {
     void copyOf() {
         List<Integer> original = Lists.of(1, 2, 3);
         List<Integer> copy = Lists.copyOf(original);
+        assertNotSame(original, copy);
         assertEquals(original, copy);
         assertThrows(UnsupportedOperationException.class, () -> copy.add(0));
     }
@@ -248,6 +249,7 @@ public class TestLists {
     void copyOfNullable() {
         List<Integer> original = Lists.ofNullable(1, null, 3);
         List<Integer> copy = Lists.copyOfNullable(original);
+        assertNotSame(original, copy);
         assertEquals(original, copy);
         assertThrows(UnsupportedOperationException.class, () -> copy.add(0));
     }

@@ -61,7 +61,7 @@ public abstract class MutableLists {
      * @since 1.1
      */
     public static <T> List<T> of() {
-        return Collections.emptyList();
+        return new ArrayList<>();
     }
 
     /**
