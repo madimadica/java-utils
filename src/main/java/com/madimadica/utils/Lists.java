@@ -277,4 +277,188 @@ public abstract class Lists {
         return result;
     }
 
+
+    /**
+     * Return an unmodifiable list containing one element.<br>
+     * @param <T> the {@code List}'s element type
+     * @param t1 the single element
+     * @return a {@code List} containing the single argument.
+     * @since 1.1
+     */
+    public static <T> List<T> ofNullable(T t1) {
+        return immutableListFactoryNullable(t1);
+    }
+
+    /**
+     * Return an unmodifiable list containing two elements.<br>
+     * @param <T> the {@code List}'s element type
+     * @param t1 the first element
+     * @param t2 the second element
+     * @return a {@code List} containing the arguments in order.
+     * @since 1.1
+     */
+    public static <T> List<T> ofNullable(T t1, T t2) {
+        return immutableListFactoryNullable(t1, t2);
+    }
+
+    /**
+     * Return an unmodifiable list containing three elements.<br>
+     * @param <T> the {@code List}'s element type
+     * @param t1 the first element
+     * @param t2 the second element
+     * @param t3 the third element
+     * @return a {@code List} containing the arguments in order.
+     * @since 1.1
+     */
+    public static <T> List<T> ofNullable(T t1, T t2, T t3) {
+        return immutableListFactoryNullable(t1, t2, t3);
+    }
+
+    /**
+     * Return an unmodifiable list containing four elements.<br>
+     * @param <T> the {@code List}'s element type
+     * @param t1 the first element
+     * @param t2 the second element
+     * @param t3 the third element
+     * @param t4 the fourth element
+     * @return a {@code List} containing the arguments in order.
+     * @since 1.1
+     */
+    public static <T> List<T> ofNullable(T t1, T t2, T t3, T t4) {
+        return immutableListFactoryNullable(t1, t2, t3, t4);
+    }
+
+    /**
+     * Return an unmodifiable list containing five elements.<br>
+     * @param <T> the {@code List}'s element type
+     * @param t1 the first element
+     * @param t2 the second element
+     * @param t3 the third element
+     * @param t4 the fourth element
+     * @param t5 the fifth element
+     * @return a {@code List} containing the arguments in order.
+     * @since 1.1
+     */
+    public static <T> List<T> ofNullable(T t1, T t2, T t3, T t4, T t5) {
+        return immutableListFactoryNullable(t1, t2, t3, t4, t5);
+    }
+
+    /**
+     * Return an unmodifiable list containing six elements.<br>
+     * @param <T> the {@code List}'s element type
+     * @param t1 the first element
+     * @param t2 the second element
+     * @param t3 the third element
+     * @param t4 the fourth element
+     * @param t5 the fifth element
+     * @param t6 the sixth element
+     * @return a {@code List} containing the arguments in order.
+     * @since 1.1
+     */
+    public static <T> List<T> ofNullable(T t1, T t2, T t3, T t4, T t5, T t6) {
+        return immutableListFactoryNullable(t1, t2, t3, t4, t5, t6);
+    }
+
+    /**
+     * Return an unmodifiable list containing seven elements.<br>
+     * @param <T> the {@code List}'s element type
+     * @param t1 the first element
+     * @param t2 the second element
+     * @param t3 the third element
+     * @param t4 the fourth element
+     * @param t5 the fifth element
+     * @param t6 the sixth element
+     * @param t7 the seventh element
+     * @return a {@code List} containing the arguments in order.
+     * @since 1.1
+     */
+    public static <T> List<T> ofNullable(T t1, T t2, T t3, T t4, T t5, T t6, T t7) {
+        return immutableListFactoryNullable(t1, t2, t3, t4, t5, t6, t7);
+    }
+
+    /**
+     * Return an unmodifiable list containing eight elements.<br>
+     * @param <T> the {@code List}'s element type
+     * @param t1 the first element
+     * @param t2 the second element
+     * @param t3 the third element
+     * @param t4 the fourth element
+     * @param t5 the fifth element
+     * @param t6 the sixth element
+     * @param t7 the seventh element
+     * @param t8 the eight element
+     * @return a {@code List} containing the arguments in order.
+     * @since 1.1
+     */
+    public static <T> List<T> ofNullable(T t1, T t2, T t3, T t4, T t5, T t6, T t7, T t8) {
+        return immutableListFactoryNullable(t1, t2, t3, t4, t5, t6, t7, t8);
+    }
+
+    /**
+     * Return an unmodifiable list containing nine elements.<br>
+     * @param <T> the {@code List}'s element type
+     * @param t1 the first element
+     * @param t2 the second element
+     * @param t3 the third element
+     * @param t4 the fourth element
+     * @param t5 the fifth element
+     * @param t6 the sixth element
+     * @param t7 the seventh element
+     * @param t8 the eight element
+     * @param t9 the ninth element
+     * @return a {@code List} containing the arguments in order.
+     * @since 1.1
+     */
+    public static <T> List<T> ofNullable(T t1, T t2, T t3, T t4, T t5, T t6, T t7, T t8, T t9) {
+        return immutableListFactoryNullable(t1, t2, t3, t4, t5, t6, t7, t8, t9);
+    }
+
+    /**
+     * Return an unmodifiable list containing ten elements.<br>
+     * @param <T> the {@code List}'s element type
+     * @param t1 the first element
+     * @param t2 the second element
+     * @param t3 the third element
+     * @param t4 the fourth element
+     * @param t5 the fifth element
+     * @param t6 the sixth element
+     * @param t7 the seventh element
+     * @param t8 the eight element
+     * @param t9 the ninth element
+     * @param t10 the tenth element
+     * @return a {@code List} containing the arguments in order.
+     * @since 1.1
+     */
+    public static <T> List<T> ofNullable(T t1, T t2, T t3, T t4, T t5, T t6, T t7, T t8, T t9, T t10) {
+        return immutableListFactoryNullable(t1, t2, t3, t4, t5, t6, t7, t8, t9, t10);
+    }
+
+    /**
+     * Return an unmodifiable list containing a variable number of elements.<br>
+     * @param <T> the {@code List}'s element type
+     * @param elements - the elements to be in the resulting list.
+     * @return a {@code List} containing the arguments in order.
+     * @since 1.1
+     */
+    @SafeVarargs
+    public static <T> List<T> ofNullable(T... elements) {
+        List<T> result = new ArrayList<>(elements.length);
+        result.addAll(Arrays.asList(elements));
+        return Collections.unmodifiableList(result);
+    }
+
+    /**
+     * Return an unmodifiable list containing all the elements in the {@code originalCollection}
+     * in their encounter order.<br>
+     * @param <T> type of collection elements
+     * @param originalCollection collection to copy elements from.
+     * @return a {@code List} containing all the {@code Collection}'s elements.
+     * @since 1.1
+     */
+    public static <T> List<T> copyOfNullable(Collection<? extends T> originalCollection) {
+        List<T> result = new ArrayList<>(originalCollection.size());
+        result.addAll(originalCollection);
+        return result;
+    }
+    
 }
