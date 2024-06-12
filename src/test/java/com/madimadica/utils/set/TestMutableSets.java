@@ -7,8 +7,10 @@ import java.util.Set;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
+/**
+ * Tests for {@link MutableSets}
+ */
 public class TestMutableSets {
-
 
     @Test
     void emptyset() {

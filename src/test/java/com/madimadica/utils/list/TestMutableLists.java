@@ -1,6 +1,5 @@
 package com.madimadica.utils.list;
 
-import com.madimadica.utils.list.MutableLists;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
