@@ -206,4 +206,106 @@ public class TestSets {
         set.add(2);
         assertEquals(set.size(), 3);
     }
+
+    @Test
+    void ofOrderedMutable0() {
+        Set<Integer> set = Sets.ofOrderedMutable();
+        assertTrue(set.isEmpty());
+        set.add(0);
+        assertEquals(set.size(), 1);
+    }
+
+    @Test
+    void ofOrderedMutable1() {
+        Set<Integer> set = Sets.ofOrderedMutable(0);
+        assertEquals(1, set.size());
+        set.add(1);
+        assertEquals(set.size(), 2);
+        List<Integer> list = new ArrayList<>(set);
+        assertEquals(list.get(0), 0);
+        assertEquals(list.get(1), 1);
+    }
+
+    @Test
+    void ofOrderedMutable1_null() {
+        Set<Integer> set = Sets.ofOrderedMutable(null);
+        assertEquals(1, set.size());
+        set.add(1);
+        assertEquals(set.size(), 2);
+        List<Integer> list = new ArrayList<>(set);
+        assertNull(list.get(0));
+        assertEquals(list.get(1), 1);
+    }
+
+    @Test
+    void ofOrderedMutable2_duplicates() {
+        Set<Integer> set = Sets.ofOrderedMutable(0, 0);
+        assertEquals(1, set.size());
+        set.add(1);
+        assertEquals(set.size(), 2);
+        List<Integer> list = new ArrayList<>(set);
+        assertEquals(list.get(0), 0);
+        assertEquals(list.get(1), 1);
+    }
+
+    @Test
+    void ofOrderedMutable2() {
+        Set<Integer> set = Sets.ofOrderedMutable(0, 1);
+        assertEquals(2, set.size());
+        set.add(2);
+        assertEquals(set.size(), 3);
+        List<Integer> list = new ArrayList<>(set);
+        assertEquals(list.get(0), 0);
+        assertEquals(list.get(1), 1);
+        assertEquals(list.get(2), 2);
+    }
+
+    @Test
+    void ofOrderedMutable3_duplicates() {
+        Set<Integer> set = Sets.ofOrderedMutable(0, 1, 0);
+        assertEquals(2, set.size());
+        set.add(2);
+        assertEquals(set.size(), 3);
+        List<Integer> list = new ArrayList<>(set);
+        assertEquals(list.get(0), 0);
+        assertEquals(list.get(1), 1);
+        assertEquals(list.get(2), 2);
+    }
+
+    @Test
+    void ofOrderedMutable10() {
+        Set<Integer> set = Sets.ofOrderedMutable(0, 1, 2, 3, 4, 5, 6, 7, 8, 9);
+        assertEquals(10, set.size());
+        set.add(10);
+        assertEquals(11, set.size());
+        List<Integer> list = new ArrayList<>(set);
+        assertEquals(list.get(0), 0);
+        assertEquals(list.get(1), 1);
+        assertEquals(list.get(2), 2);
+        assertEquals(list.get(3), 3);
+        assertEquals(list.get(4), 4);
+        assertEquals(list.get(5), 5);
+        assertEquals(list.get(6), 6);
+        assertEquals(list.get(7), 7);
+        assertEquals(list.get(8), 8);
+        assertEquals(list.get(9), 9);
+        assertEquals(list.get(10), 10);
+    }
+
+    @Test
+    void ofOrderedMutable10_duplicates() {
+        Set<Integer> set = Sets.ofOrderedMutable(0, 1, 0, 2, 0, 3, 0, 4, 0, 5);
+        assertEquals(6, set.size());
+        set.add(6);
+        assertEquals(7, set.size());
+        List<Integer> list = new ArrayList<>(set);
+        assertEquals(list.get(0), 0);
+        assertEquals(list.get(1), 1);
+        assertEquals(list.get(2), 2);
+        assertEquals(list.get(3), 3);
+        assertEquals(list.get(4), 4);
+        assertEquals(list.get(5), 5);
+        assertEquals(list.get(6), 6);
+    }
+
 }

@@ -84,6 +84,31 @@ public abstract class Sets {
         return Collections.unmodifiableSet(result);
     }
 
+
+    /**
+     * Return a mutable, sequenced set containing the unique arguments.<br>
+     * Elements are ordered according to the argument ordering.<br>
+     * Allows duplicate arguments; uses position of the first occurrence.<br>
+     * Allows <code>null</code> arguments.
+     *
+     * @param <T> the {@code Set}'s element type
+     * @param elements the elements to be in the resulting set.
+     * @return an ordered, mutable {@code Set} containing the unique arguments.
+     * @since 1.1
+     */
+    @SafeVarargs
+    public static <T> Set<T> ofOrderedMutable(T... elements) {
+        if (elements == null) {
+            Set<T> nullSingleton = new HashSet<>();
+            nullSingleton.add(null);
+            return nullSingleton;
+        } else {
+            Set<T> result = new HashSet<>(elements.length);
+            Collections.addAll(result, elements);
+            return result;
+        }
+    }
+
     /**
      * Return an unmodifiable set containing all the unique elements in {@code originalCollection}.
      * @param <T> type of collection elements
