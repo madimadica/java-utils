@@ -2,7 +2,10 @@ package com.madimadica.utils.set;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -67,6 +70,93 @@ public class TestSets {
         assertNotSame(original, copy);
         assertEquals(original, copy);
         assertThrows(UnsupportedOperationException.class, () -> copy.add(0));
+    }
+
+    @Test
+    void ofOrdered0() {
+        Set<String> emptySet = Sets.ofOrdered();
+        assertTrue(emptySet.isEmpty());
+        assertThrows(UnsupportedOperationException.class, () -> emptySet.add("Error"));
+    }
+
+    @Test
+    void ofOrdered1() {
+        Set<Integer> set = Sets.ofOrdered(0);
+        assertEquals(1, set.size());
+        assertThrows(UnsupportedOperationException.class, () -> set.add(0));
+    }
+
+    @Test
+    void ofOrdered2() {
+        Set<Integer> set = Sets.ofOrdered(0, 1);
+        assertEquals(2, set.size());
+        assertThrows(UnsupportedOperationException.class, () -> set.add(0));
+        List<Integer> list = new ArrayList<>(set);
+        assertEquals(list.get(0), 0);
+        assertEquals(list.get(1), 1);
+    }
+
+    @Test
+    void ofOrdered3() {
+        Set<Integer> set = Sets.ofOrdered(0, 1, 2);
+        assertEquals(3, set.size());
+        assertThrows(UnsupportedOperationException.class, () -> set.add(0));
+        List<Integer> list = new ArrayList<>(set);
+        assertEquals(list.get(0), 0);
+        assertEquals(list.get(1), 1);
+        assertEquals(list.get(2), 2);
+    }
+
+    @Test
+    void ofOrdered10() {
+        Set<Integer> set = Sets.ofOrdered(0, 1, 2, 3, 4, 5, 6, 7, 8, 9);
+        assertEquals(10, set.size());
+        assertThrows(UnsupportedOperationException.class, () -> set.add(0));
+        List<Integer> list = new ArrayList<>(set);
+        assertEquals(list.get(0), 0);
+        assertEquals(list.get(1), 1);
+        assertEquals(list.get(2), 2);
+        assertEquals(list.get(3), 3);
+        assertEquals(list.get(4), 4);
+        assertEquals(list.get(5), 5);
+        assertEquals(list.get(6), 6);
+        assertEquals(list.get(7), 7);
+        assertEquals(list.get(8), 8);
+        assertEquals(list.get(9), 9);
+    }
+
+    @Test
+    void ofOrdered2_duplicates() {
+        Set<Integer> set = Sets.ofOrdered(0, 0);
+        assertEquals(1, set.size());
+        assertThrows(UnsupportedOperationException.class, () -> set.add(0));
+        List<Integer> list = new ArrayList<>(set);
+        assertEquals(list.get(0), 0);
+    }
+
+    @Test
+    void ofOrdered3_duplicates() {
+        Set<Integer> set = Sets.ofOrdered(0, 0, 1);
+        assertEquals(2, set.size());
+        assertThrows(UnsupportedOperationException.class, () -> set.add(0));
+        List<Integer> list = new ArrayList<>(set);
+        assertEquals(list.get(0), 0);
+        assertEquals(list.get(1), 1);
+    }
+
+    @Test
+    void ofOrdered1_null() {
+        assertThrows(NullPointerException.class, () -> Sets.ofOrdered(null));
+    }
+
+    @Test
+    void ofOrdered2_null() {
+        assertThrows(NullPointerException.class, () -> Sets.ofOrdered(0, null));
+    }
+
+    @Test
+    void ofOrdered3_null() {
+        assertThrows(NullPointerException.class, () -> Sets.ofOrdered(0, null, 2));
     }
     
 }
