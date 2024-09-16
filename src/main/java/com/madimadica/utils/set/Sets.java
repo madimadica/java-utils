@@ -35,6 +35,31 @@ public abstract class Sets {
     }
 
     /**
+     * Return a mutable set containing the unique arguments.<br>
+     * Allows duplicate arguments.<br>
+     * Allows <code>null</code> arguments, as mutability prevents null-safety.<br>
+     * A single <code>null</code> argument is interpreted to be a
+     * (mutable) singleton set containing <code>null</code>.
+     *
+     * @param <T> the {@code Set}'s element type
+     * @param elements the elements to be in the resulting set.
+     * @return a mutable {@code Set} containing the unique arguments.
+     * @since 1.1
+     */
+    @SafeVarargs
+    public static <T> Set<T> ofMutable(T... elements) {
+        if (elements == null) {
+            Set<T> nullSingleton = new HashSet<>();
+            nullSingleton.add(null);
+            return nullSingleton;
+        } else {
+            Set<T> result = new HashSet<>(elements.length);
+            Collections.addAll(result, elements);
+            return result;
+        }
+    }
+
+    /**
      * Return an unmodifiable, sequenced set containing a variable number of unique elements.<br>
      * Elements are ordered according to the argument ordering.<br>
      * Allows duplicate arguments.<br>

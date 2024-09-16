@@ -158,5 +158,52 @@ public class TestSets {
     void ofOrdered3_null() {
         assertThrows(NullPointerException.class, () -> Sets.ofOrdered(0, null, 2));
     }
-    
+
+    @Test
+    void ofMutable0() {
+        Set<Integer> set = Sets.ofMutable();
+        assertTrue(set.isEmpty());
+        set.add(0);
+        assertEquals(set.size(), 1);
+    }
+
+    @Test
+    void ofMutable1() {
+        Set<Integer> set = Sets.ofMutable(0);
+        assertEquals(set.size(), 1);
+        set.add(1);
+        assertEquals(set.size(), 2);
+    }
+
+    @Test
+    void ofMutable2() {
+        Set<Integer> set = Sets.ofMutable(0, 1);
+        assertEquals(set.size(), 2);
+        set.add(2);
+        assertEquals(set.size(), 3);
+    }
+
+    @Test
+    void ofMutable1_null_array() {
+        Set<Integer> set = Sets.ofMutable(null);
+        assertEquals(set.size(), 1);
+        set.add(1);
+        assertEquals(set.size(), 2);
+    }
+
+    @Test
+    void ofMutable1_null_int() {
+        Set<Integer> set = Sets.ofMutable((Integer) null);
+        assertEquals(set.size(), 1);
+        set.add(1);
+        assertEquals(set.size(), 2);
+    }
+
+    @Test
+    void ofMutable2_null() {
+        Set<Integer> set = Sets.ofMutable(0, null);
+        assertEquals(set.size(), 2);
+        set.add(2);
+        assertEquals(set.size(), 3);
+    }
 }
