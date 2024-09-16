@@ -30,7 +30,7 @@ public abstract class Sets {
     @SafeVarargs
     public static <T> Set<T> ofNullable(T... elements) {
         Set<T> result = new HashSet<>(elements.length);
-        result.addAll(Arrays.asList(elements));
+        Collections.addAll(result, elements);
         return Collections.unmodifiableSet(result);
     }
 
