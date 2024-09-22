@@ -137,5 +137,5 @@ public class TestLists {
     void copyOfMutable_null() {
         assertThrows(NullPointerException.class, () -> Lists.copyOfMutable(null));
     }
-    
+
 }

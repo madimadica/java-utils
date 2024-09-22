@@ -9,7 +9,6 @@ import java.util.*;
  * Provides implemented default methods on Sets in Java 9+.
  *
  * @see Set
- * @see MutableSets
  * @since 1.1
  */
 public abstract class Sets {
