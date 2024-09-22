@@ -477,6 +477,21 @@ public class SetsTests {
         }
     }
 
+    /**
+     * Given a copy factory, copy a set of random integers
+     * and verify the resulting set has the same order.
+     * @param setCopyFactory static factory method to copy elements.
+     */
+    void assertCopyOrderedSet(Function<List<Integer>, Set<Integer>> setCopyFactory) {
+        var list = getRandomDistinctList();
+        Set<Integer> result = setCopyFactory.apply(list);
+        int index = 0;
+        for (Integer x : result) {
+            assertEquals(list.get(index), x);
+            index++;
+        }
+    }
+
     @Test
     void ofOrdered_isOrdered() {
         assertOrderedSet(Sets::ofOrdered);
@@ -490,6 +505,16 @@ public class SetsTests {
     @Test
     void ofOrderedMutable_isOrdered() {
         assertOrderedSet(Sets::ofOrderedMutable);
+    }
+
+    @Test
+    void copyOfOrdered_isOrdered() {
+        assertCopyOrderedSet(Sets::copyOfOrdered);
+    }
+
+    @Test
+    void CopyOfOrderedNullable_isOrdered() {
+        assertCopyOrderedSet(Sets::copyOfOrderedNullable);
     }
 
     @Test
@@ -515,5 +540,23 @@ public class SetsTests {
     void copyOfOrdered_withNulls() {
         Set<Integer> original = Sets.ofOrderedNullable(1, null, 3);
         assertThrows(NullPointerException.class, () -> Sets.copyOfOrdered(original));
+    }
+
+    @Test
+    void copyOfOrderedNullable() {
+        Set<Integer> original = Sets.ofOrderedNullable(1, 2, 3);
+        Set<Integer> copy = Sets.copyOfOrderedNullable(original);
+        assertNotSame(original, copy);
+        assertEquals(original, copy);
+        assertThrows(UnsupportedOperationException.class, () -> copy.add(5));
+    }
+
+    @Test
+    void copyOfOrderedNullable_withNulls() {
+        Set<Integer> original = Sets.ofOrderedNullable(1, 2, null);
+        Set<Integer> copy = Sets.copyOfOrderedNullable(original);
+        assertNotSame(original, copy);
+        assertEquals(original, copy);
+        assertThrows(UnsupportedOperationException.class, () -> copy.add(5));
     }
 }

@@ -169,4 +169,20 @@ public abstract class Sets {
         return Collections.unmodifiableSet(set);
     }
 
+    /**
+     * Return an unmodifiable set containing all the unique elements in {@code originalCollection}.
+     * <br>
+     * Allows duplicate arguments.<br>
+     * Allows <code>null</code> arguments.
+     * @param <T> type of collection elements
+     * @param originalCollection collection to copy elements from.
+     * @return an immutable, ordered {@code Set} containing all the unique elements from the {@code Collection}.
+     * @throws NullPointerException if {@code originalCollection} is {@code null}.
+     * @since 1.1
+     */
+    public static <T> Set<T> copyOfOrderedNullable(Collection<? extends T> originalCollection) {
+        var set = new LinkedHashSet<>(originalCollection);
+        return Collections.unmodifiableSet(set);
+    }
+
 }
