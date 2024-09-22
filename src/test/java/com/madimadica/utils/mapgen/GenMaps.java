@@ -30,6 +30,7 @@ public class GenMaps {
         lines.add("    public Maps() {}");
         lines.add("");
         lines.add(ofNullable());
+        lines.add(ofMutable());
         lines.add("");
         lines.add("}");
         lines.add("");
@@ -60,6 +61,19 @@ public class GenMaps {
                     "The values can be {@code null}, but keys must be non-null."
             );
             result.add(generate(i, "ofNullable", "HashMap", "Collections.unmodifiableMap(map)", javadoc));
+        }
+        return result.toString();
+    }
+
+    private static String ofMutable() {
+        StringJoiner result = new StringJoiner("\n\n");
+        for (int i = 1; i <= MAX_ENTRIES; ++i) {
+            List<String> javadoc = List.of(
+                    "Creates a mutable map with " + i + " " + (i == 1 ? "entry" : "entries") + ".",
+                    "<br>",
+                    "The values can be {@code null}, but keys must be non-null."
+            );
+            result.add(generate(i, "ofMutable", "HashMap", "map", javadoc));
         }
         return result.toString();
     }
