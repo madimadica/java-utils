@@ -2,9 +2,10 @@ package com.madimadica.utils;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
+import java.util.concurrent.ThreadLocalRandom;
+import java.util.function.Function;
+import java.util.function.Supplier;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -254,6 +255,94 @@ public class SetsTests {
 
 
     @Test
+    void ofOrderedNullable0() {
+        Set<String> emptySet = Sets.ofOrderedNullable();
+        assertTrue(emptySet.isEmpty());
+        assertThrows(UnsupportedOperationException.class, () -> emptySet.add("Error"));
+    }
+
+    @Test
+    void ofOrderedNullable1() {
+        Set<Integer> set = Sets.ofOrderedNullable(0);
+        assertEquals(1, set.size());
+        assertThrows(UnsupportedOperationException.class, () -> set.add(0));
+    }
+
+    @Test
+    void ofOrderedNullable1_nullLiteral() {
+        assertThrows(NullPointerException.class, () -> Sets.ofOrderedNullable(null));
+    }
+
+    @Test
+    void ofOrderedNullable1_nullCast() {
+        Set<Integer> set = Sets.ofOrderedNullable((Integer) null);
+        assertEquals(1, set.size());
+        assertThrows(UnsupportedOperationException.class, () -> set.add(0));
+    }
+
+    @Test
+    void ofOrderedNullable2() {
+        Set<Integer> set = Sets.ofOrderedNullable(0, null);
+        assertEquals(2, set.size());
+        assertThrows(UnsupportedOperationException.class, () -> set.add(0));
+        List<Integer> list = new ArrayList<>(set);
+        assertEquals(list.get(0), 0);
+        assertNull(list.get(1));
+    }
+
+    @Test
+    void ofOrderedNullable3() {
+        Set<Integer> set = Sets.ofOrderedNullable(0, null, 2);
+        assertEquals(3, set.size());
+        assertThrows(UnsupportedOperationException.class, () -> set.add(0));
+        List<Integer> list = new ArrayList<>(set);
+        assertEquals(list.get(0), 0);
+        assertNull(list.get(1));
+        assertEquals(list.get(2), 2);
+    }
+
+    @Test
+    void ofOrderedNullable10() {
+        Set<Integer> set = Sets.ofOrderedNullable(0, 1, 2, 3, 4, null, 6, 7, 8, 9);
+        assertEquals(10, set.size());
+        assertThrows(UnsupportedOperationException.class, () -> set.add(0));
+        List<Integer> list = new ArrayList<>(set);
+        assertEquals(list.get(0), 0);
+        assertEquals(list.get(1), 1);
+        assertEquals(list.get(2), 2);
+        assertEquals(list.get(3), 3);
+        assertEquals(list.get(4), 4);
+        assertNull(list.get(5));
+        assertEquals(list.get(6), 6);
+        assertEquals(list.get(7), 7);
+        assertEquals(list.get(8), 8);
+        assertEquals(list.get(9), 9);
+    }
+
+    @Test
+    void ofOrderedNullable_duplicatesA() {
+        Set<Integer> set = Sets.ofOrderedNullable(0, 0);
+        assertEquals(1, set.size());
+        assertThrows(UnsupportedOperationException.class, () -> set.add(0));
+        List<Integer> list = new ArrayList<>(set);
+        assertEquals(list.get(0), 0);
+    }
+
+    @Test
+    void ofOrderedNullable_duplicatesB() {
+        Set<Integer> set = Sets.ofOrderedNullable(0, 0, 1);
+        assertEquals(2, set.size());
+        assertThrows(UnsupportedOperationException.class, () -> set.add(0));
+        List<Integer> list = new ArrayList<>(set);
+        assertEquals(list.get(0), 0);
+        assertEquals(list.get(1), 1);
+    }
+
+
+
+
+
+    @Test
     void ofOrderedMutable0() {
         Set<Integer> set = Sets.ofOrderedMutable();
         assertTrue(set.isEmpty());
@@ -360,4 +449,41 @@ public class SetsTests {
         assertEquals(list.get(6), 6);
     }
 
+    /**
+     * Given a factory, create a random array of distinct integers, as the varargs,
+     * and verify the resulting set has the same order.
+     * @param setFactory static factory method
+     */
+    void assertOrderedSet(Function<Integer[], Set<Integer>> setFactory) {
+        // Create 100k random values, then shuffle
+        Set<Integer> randomNumbers = new HashSet<>(100_000);
+        while (randomNumbers.size() < 100_000) {
+            randomNumbers.add(
+                    ThreadLocalRandom.current().nextInt(1_000_000)
+            );
+        }
+        var randomList = new ArrayList<>(randomNumbers);
+        Collections.shuffle(randomList);
+        Set<Integer> result = setFactory.apply(randomList.toArray(new Integer[] {}));
+        int index = 0;
+        for (Integer x : result) {
+            assertEquals(randomList.get(index), x);
+            index++;
+        }
+    }
+
+    @Test
+    void ofOrdered_isOrdered() {
+        assertOrderedSet(Sets::ofOrdered);
+    }
+
+    @Test
+    void ofOrderedNullable_isOrdered() {
+        assertOrderedSet(Sets::ofOrderedNullable);
+    }
+
+    @Test
+    void ofOrderedMutable_isOrdered() {
+        assertOrderedSet(Sets::ofOrderedMutable);
+    }
 }

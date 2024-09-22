@@ -79,6 +79,25 @@ public abstract class Sets {
         return Collections.unmodifiableSet(result);
     }
 
+    /**
+     * Return an unmodifiable sequenced set containing the unique arguments in their given order.<br>
+     * Allows duplicate arguments.<br>
+     * Allows <code>null</code> arguments.<br>
+     * For any duplicate elements, the first occurrence is used as the ordered position.
+     *
+     * @param <T> the {@code Set}'s element type
+     * @param elements the elements to be in the resulting set.
+     * @return an ordered, immutable {@code Set} containing the unique arguments.
+     * @throws NullPointerException if {@code elements} is {@code null}, i.e. {@code ofOrderedNullable(null)}.
+     * @since 1.1
+     */
+    @SafeVarargs
+    public static <T> Set<T> ofOrderedNullable(T... elements) {
+        Set<T> result = new LinkedHashSet<>(elements.length);
+        Collections.addAll(result, elements);
+        return Collections.unmodifiableSet(result);
+    }
+
 
     /**
      * Return a mutable, sequenced set containing the unique arguments in their given order.<br>
@@ -94,7 +113,7 @@ public abstract class Sets {
      */
     @SafeVarargs
     public static <T> Set<T> ofOrderedMutable(T... elements) {
-        Set<T> result = new HashSet<>(elements.length);
+        Set<T> result = new LinkedHashSet<>(elements.length);
         Collections.addAll(result, elements);
         return result;
     }
