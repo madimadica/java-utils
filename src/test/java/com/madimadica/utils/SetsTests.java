@@ -510,4 +510,10 @@ public class SetsTests {
         assertEquals(original, copy);
         assertThrows(UnsupportedOperationException.class, () -> copy.add(5));
     }
+
+    @Test
+    void copyOfOrdered_withNulls() {
+        Set<Integer> original = Sets.ofOrderedNullable(1, null, 3);
+        assertThrows(NullPointerException.class, () -> Sets.copyOfOrdered(original));
+    }
 }

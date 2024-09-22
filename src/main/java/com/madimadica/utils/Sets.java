@@ -163,6 +163,9 @@ public abstract class Sets {
      */
     public static <T> Set<T> copyOfOrdered(Collection<? extends T> originalCollection) {
         var set = new LinkedHashSet<>(originalCollection);
+        if (set.contains(null)) {
+            throw new NullPointerException("Collection to copy cannot contain nulls!");
+        }
         return Collections.unmodifiableSet(set);
     }
 
