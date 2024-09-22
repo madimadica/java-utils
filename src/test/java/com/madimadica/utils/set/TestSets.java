@@ -22,10 +22,15 @@ public class TestSets {
     }
 
     @Test
-    void nullableSet1Null() {
+    void nullableSet1_castedNull() {
         Set<Integer> set = Sets.ofNullable((Integer) null);
         assertEquals(1, set.size());
         assertThrows(UnsupportedOperationException.class, () -> set.add(0));
+    }
+
+    @Test
+    void nullableSet1_literalNull() {
+        assertThrows(NullPointerException.class, () -> Sets.ofNullable(null));
     }
 
     @Test
@@ -70,6 +75,11 @@ public class TestSets {
         assertNotSame(original, copy);
         assertEquals(original, copy);
         assertThrows(UnsupportedOperationException.class, () -> copy.add(0));
+    }
+
+    @Test
+    void copyOfNullable_null() {
+        assertThrows(NullPointerException.class, () -> Sets.copyOfNullable(null));
     }
 
     @Test
@@ -150,6 +160,11 @@ public class TestSets {
     }
 
     @Test
+    void ofOrdered1_nullTyped() {
+        assertThrows(NullPointerException.class, () -> Sets.ofOrdered((Integer) null));
+    }
+
+    @Test
     void ofOrdered2_null() {
         assertThrows(NullPointerException.class, () -> Sets.ofOrdered(0, null));
     }
@@ -185,10 +200,7 @@ public class TestSets {
 
     @Test
     void ofMutable1_null_array() {
-        Set<Integer> set = Sets.ofMutable(null);
-        assertEquals(set.size(), 1);
-        set.add(1);
-        assertEquals(set.size(), 2);
+        assertThrows(NullPointerException.class, () -> Sets.ofMutable(null));
     }
 
     @Test
@@ -228,13 +240,18 @@ public class TestSets {
 
     @Test
     void ofOrderedMutable1_null() {
-        Set<Integer> set = Sets.ofOrderedMutable(null);
+        assertThrows(NullPointerException.class, () -> Sets.ofOrderedMutable(null));
+    }
+
+    @Test
+    void ofOrderedMutable1_nullType() {
+        Set<Integer> set = Sets.ofOrderedMutable((Integer) null);
         assertEquals(1, set.size());
         set.add(1);
         assertEquals(set.size(), 2);
         List<Integer> list = new ArrayList<>(set);
         assertNull(list.get(0));
-        assertEquals(list.get(1), 1);
+        assertEquals(1, list.get(1));
     }
 
     @Test

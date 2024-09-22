@@ -20,11 +20,14 @@ public abstract class Sets {
     public Sets() {}
 
     /**
-     * Return an unmodifiable set containing a variable number of unique elements.<br>
-     * Allows duplicate arguments.
+     * Return an unmodifiable set containing the unique arguments.<br>
+     * Allows duplicate arguments.<br>
+     * Allows {@code null} arguments.
+     *
      * @param <T> the {@code Set}'s element type
-     * @param elements - the elements to be in the resulting set.
-     * @return a {@code Set} containing the unique arguments.
+     * @param elements the elements to be in the resulting set.
+     * @return an immutable {@code Set} containing the unique arguments.
+     * @throws NullPointerException if {@code elements} is {@code null}, i.e. {@code ofNullable(null)}.
      * @since 1.1
      */
     @SafeVarargs
@@ -37,38 +40,31 @@ public abstract class Sets {
     /**
      * Return a mutable set containing the unique arguments.<br>
      * Allows duplicate arguments.<br>
-     * Allows <code>null</code> arguments, as mutability prevents null-safety.<br>
-     * A single <code>null</code> argument is interpreted to be a
-     * (mutable) singleton set containing <code>null</code>.
+     * Allows <code>null</code> arguments.
      *
      * @param <T> the {@code Set}'s element type
      * @param elements the elements to be in the resulting set.
      * @return a mutable {@code Set} containing the unique arguments.
+     * @throws NullPointerException if {@code elements} is {@code null}, i.e. {@code ofMutable(null)}.
      * @since 1.1
      */
     @SafeVarargs
     public static <T> Set<T> ofMutable(T... elements) {
-        if (elements == null) {
-            Set<T> nullSingleton = new HashSet<>();
-            nullSingleton.add(null);
-            return nullSingleton;
-        } else {
-            Set<T> result = new HashSet<>(elements.length);
-            Collections.addAll(result, elements);
-            return result;
-        }
+        Set<T> result = new HashSet<>(elements.length);
+        Collections.addAll(result, elements);
+        return result;
     }
 
     /**
-     * Return an unmodifiable, sequenced set containing a variable number of unique elements.<br>
-     * Elements are ordered according to the argument ordering.<br>
+     * Return an unmodifiable, sequenced set containing the unique arguments in their given order.<br>
      * Allows duplicate arguments.<br>
-     * Does <strong>not</strong> allow <code>null</code> arguments.
+     * Does <strong>not</strong> allow <code>null</code> arguments.<br>
+     * For any duplicate elements, the first occurrence is used as the ordered position.
      *
      * @param <T> the {@code Set}'s element type
-     * @param elements - the elements to be in the resulting set.
-     * @throws NullPointerException if any element is null.
-     * @return a {@code Set} containing the unique arguments.
+     * @param elements the elements to be in the resulting set.
+     * @return an immutable {@code Set} containing the unique arguments.
+     * @throws NullPointerException if {@code elements} is {@code null}, i.e. {@code ofOrdered(null)}, or if any element is {@code null}.
      * @since 1.1
      */
     @SafeVarargs
@@ -86,39 +82,34 @@ public abstract class Sets {
 
 
     /**
-     * Return a mutable, sequenced set containing the unique arguments.<br>
-     * Elements are ordered according to the argument ordering.<br>
-     * Allows duplicate arguments; uses position of the first occurrence.<br>
-     * Allows <code>null</code> arguments.
+     * Return a mutable, sequenced set containing the unique arguments in their given order.<br>
+     * Allows duplicate arguments.<br>
+     * Allows <code>null</code> arguments.<br>
+     * For any duplicate elements, the first occurrence is used as the ordered position.
      *
      * @param <T> the {@code Set}'s element type
      * @param elements the elements to be in the resulting set.
      * @return an ordered, mutable {@code Set} containing the unique arguments.
+     * @throws NullPointerException if {@code elements} is {@code null}, i.e. {@code ofOrderedMutable(null)}.
      * @since 1.1
      */
     @SafeVarargs
     public static <T> Set<T> ofOrderedMutable(T... elements) {
-        if (elements == null) {
-            Set<T> nullSingleton = new HashSet<>();
-            nullSingleton.add(null);
-            return nullSingleton;
-        } else {
-            Set<T> result = new HashSet<>(elements.length);
-            Collections.addAll(result, elements);
-            return result;
-        }
+        Set<T> result = new HashSet<>(elements.length);
+        Collections.addAll(result, elements);
+        return result;
     }
 
     /**
      * Return an unmodifiable set containing all the unique elements in {@code originalCollection}.
      * @param <T> type of collection elements
      * @param originalCollection collection to copy elements from.
-     * @return a {@code Set} containing all the unique elements from the {@code Collection}.
+     * @return an immutable {@code Set} containing all the unique elements from the {@code Collection}.
+     * @throws NullPointerException if {@code originalCollection} is {@code null}.
      * @since 1.1
      */
     public static <T> Set<T> copyOfNullable(Collection<? extends T> originalCollection) {
-        Set<T> result = new HashSet<>(originalCollection.size());
-        result.addAll(originalCollection);
+        Set<T> result = new HashSet<>(originalCollection);
         return Collections.unmodifiableSet(result);
     }
 
