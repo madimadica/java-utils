@@ -5,9 +5,37 @@ import java.util.*;
 /**
  * Static helper methods for dealing with Lists.
  * Return values are immutable (unmodifiable) lists.
- * <br>
- * Provides implemented default methods on List in Java 9+.
- *
+ * <h2>Factory Properies</h2>
+ * <p>
+ *     A summary of the properties of the resulting list created by the static factory methods is
+ *     described in this table. While not labeled in the table, this includes the equivalent {@code copyOf...} factories.
+ * </p>
+ * <table>
+ *     <thead>
+ *         <tr>
+ *             <th>Name</th>
+ *             <th>Nullable</th>
+ *             <th>Mutable</th>
+ *         </tr>
+ *     </thead>
+ *     <tbody>
+ *         <tr>
+ *             <td>java.util.List#of</td>
+ *             <td>no</td>
+ *             <td>no</td>
+ *         </tr>
+ *         <tr>
+ *             <td>Lists#ofNullable</td>
+ *             <td>yes</td>
+ *             <td>no</td>
+ *         </tr>
+ *         <tr>
+ *             <td>Lists#ofMutable</td>
+ *             <td>yes</td>
+ *             <td>yes</td>
+ *         </tr>
+ *     </tbody>
+ * </table>
  * @see List
  * @since 1.1
  */
