@@ -37,6 +37,10 @@ public class GenMaps {
     }
 
     private static void ofNullable(int entryCount) {
+        generate(entryCount, "HashMap", "Collections.unmodifiableMap(map)");
+    }
+
+    private static void generate(int entryCount, String mapClass, String returnValue) {
         StringJoiner javadoc = getJavadocJoiner();
         javadoc.add("Creates an immutable map with " + entryCount + " " + (entryCount == 1 ? "entry" : "entries") + ".");
         javadoc.add("<br>");
@@ -59,11 +63,11 @@ public class GenMaps {
         String signature = signatureSj.toString();
         StringJoiner methodSj = new StringJoiner("\n", javadoc + "\n    " + signature + " {\n", "\n    }");
         methodSj.add(assertNonNullKeys(entryCount));
-        methodSj.add("        Map<K, V> map = new HashMap<>(" + entryCount + ");");
+        methodSj.add("        Map<K, V> map = new " + mapClass + "<>(" + entryCount + ");");
         for (int entryNumber = 1; entryNumber <= entryCount; ++entryNumber) {
             methodSj.add(String.format("        map.put(k%d, v%<d);", entryNumber));
         }
-        methodSj.add("        return Collections.unmodifiableMap(map);");
+        methodSj.add("        return " + returnValue + ";");
         System.out.println(methodSj);
     }
 
