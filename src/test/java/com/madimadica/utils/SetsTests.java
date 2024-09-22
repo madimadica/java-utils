@@ -501,4 +501,13 @@ public class SetsTests {
         copy.add(5);
         assertNotEquals(original, copy);
     }
+
+    @Test
+    void copyOfOrdered() {
+        Set<Integer> original = Sets.ofOrdered(1, 2, 3);
+        Set<Integer> copy = Sets.copyOfOrdered(original);
+        assertNotSame(original, copy);
+        assertEquals(original, copy);
+        assertThrows(UnsupportedOperationException.class, () -> copy.add(5));
+    }
 }

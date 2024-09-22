@@ -119,7 +119,9 @@ public abstract class Sets {
     }
 
     /**
-     * Return an unmodifiable set containing all the unique elements in {@code originalCollection}.
+     * Return an unmodifiable set containing all the unique elements in {@code originalCollection}.<br>
+     * Allows duplicate arguments.<br>
+     * Allows <code>null</code> arguments.
      * @param <T> type of collection elements
      * @param originalCollection collection to copy elements from.
      * @return an immutable {@code Set} containing all the unique elements from the {@code Collection}.
@@ -134,6 +136,9 @@ public abstract class Sets {
     /**
      * Return a mutable set containing all the unique elements in {@code originalCollection}.
      * <br>
+     * Allows duplicate arguments.<br>
+     * Allows <code>null</code> arguments.
+     * <br>
      * This is equivalent to invoking {@code new HashSet<>(originalCollection)}.
      * @param <T> type of collection elements
      * @param originalCollection collection to copy elements from.
@@ -145,5 +150,20 @@ public abstract class Sets {
         return new HashSet<>(originalCollection);
     }
 
+    /**
+     * Return an unmodifiable set containing all the unique elements in {@code originalCollection}.
+     * <br>
+     * Allows duplicate arguments.<br>
+     * Does <strong>not</strong> allow <code>null</code> arguments.
+     * @param <T> type of collection elements
+     * @param originalCollection collection to copy elements from.
+     * @return an immutable, ordered {@code Set} containing all the unique elements from the {@code Collection}.
+     * @throws NullPointerException if {@code originalCollection} is {@code null}, or any elements are null.
+     * @since 1.1
+     */
+    public static <T> Set<T> copyOfOrdered(Collection<? extends T> originalCollection) {
+        var set = new LinkedHashSet<>(originalCollection);
+        return Collections.unmodifiableSet(set);
+    }
 
 }
