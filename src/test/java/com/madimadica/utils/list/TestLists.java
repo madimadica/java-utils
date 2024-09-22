@@ -13,47 +13,47 @@ import static org.junit.jupiter.api.Assertions.*;
 public class TestLists {
 
     @Test
-    void emptyNullableList() {
+    void ofNullable0() {
         List<Integer> list = Lists.ofNullable();
         assertEquals(0, list.size());
         assertThrows(UnsupportedOperationException.class, () -> list.add(0));
     }
 
     @Test
-    void nullableList1() {
+    void ofNullable1() {
         List<Integer> list = Lists.ofNullable(0);
         assertEquals(1, list.size());
         assertThrows(UnsupportedOperationException.class, () -> list.add(0));
     }
 
     @Test
-    void nullableList1_typednull() {
+    void ofNullable1_nullCast() {
         List<Integer> list = Lists.ofNullable((Integer) null);
         assertEquals(1, list.size());
         assertThrows(UnsupportedOperationException.class, () -> list.add(0));
     }
 
     @Test
-    void nullableList1_null() {
+    void ofNullable1_nullLiteral() {
         assertThrows(NullPointerException.class, () -> Lists.ofNullable(null));
     }
 
     @Test
-    void nullableList2() {
+    void ofNullable2() {
         List<Integer> list = Lists.ofNullable(1, null);
         assertEquals(2, list.size());
         assertThrows(UnsupportedOperationException.class, () -> list.add(0));
     }
 
     @Test
-    void nullableList3() {
+    void ofNullable3() {
         List<Integer> list = Lists.ofNullable(1, 2, null);
         assertEquals(3, list.size());
         assertThrows(UnsupportedOperationException.class, () -> list.add(0));
     }
 
     @Test
-    void nullableListVarargs() {
+    void ofNullable11() {
         List<Integer> list = Lists.ofNullable(1, 2, 3, 4, 5, 6, 7, 8, 9, null, 11);
         assertEquals(11, list.size());
         assertThrows(UnsupportedOperationException.class, () -> list.add(0));
@@ -69,12 +69,16 @@ public class TestLists {
     }
 
     @Test
-    void copyOfBullable_null() {
+    void copyOfNullable_null() {
         assertThrows(NullPointerException.class, () -> Lists.copyOfNullable(null));
     }
 
+
+
+
+
     @Test
-    void emptyMutableList() {
+    void ofMutable0() {
         List<Integer> list = Lists.ofMutable();
         assertEquals(0, list.size());
         list.add(0);
@@ -83,7 +87,7 @@ public class TestLists {
     }
 
     @Test
-    void ofMutableList1() {
+    void ofMutable1() {
         List<Integer> list = Lists.ofMutable(0);
         assertEquals(1, list.size());
         list.add(1);
@@ -93,7 +97,7 @@ public class TestLists {
     }
 
     @Test
-    void ofMutableList1_typednull() {
+    void ofMutable1_nullCast() {
         List<Integer> list = Lists.ofMutable((Integer) null);
         assertEquals(1, list.size());
         list.add(1);
@@ -102,14 +106,13 @@ public class TestLists {
         assertEquals(1, list.get(1));
     }
 
-
     @Test
-    void ofMutableList1_null() {
+    void ofMutableList1_nullofMutable1_nullLiteral() {
         assertThrows(NullPointerException.class, () -> Lists.ofMutable(null));
     }
 
     @Test
-    void ofMutableList2() {
+    void ofMutable2() {
         List<Integer> list = Lists.ofMutable(0, 1);
         assertEquals(2, list.size());
         list.add(2);
@@ -134,4 +137,5 @@ public class TestLists {
     void copyOfMutable_null() {
         assertThrows(NullPointerException.class, () -> Lists.copyOfMutable(null));
     }
+    
 }
