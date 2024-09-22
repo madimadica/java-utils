@@ -5,8 +5,6 @@ import java.util.*;
 /**
  * Static helper methods for dealing with Sets.
  * Return values are immutable (unmodifiable) sets.
- * <br>
- * Provides implemented default methods on Sets in Java 9+.
  *
  * @see Set
  * @since 1.1
@@ -183,6 +181,23 @@ public abstract class Sets {
     public static <T> Set<T> copyOfOrderedNullable(Collection<? extends T> originalCollection) {
         var set = new LinkedHashSet<>(originalCollection);
         return Collections.unmodifiableSet(set);
+    }
+
+    /**
+     * Return a mutable set containing all the unique elements in {@code originalCollection}.
+     * <br>
+     * Allows duplicate arguments.<br>
+     * Allows <code>null</code> arguments.
+     * <br>
+     * This is equivalent to invoking {@code new LinkedHashSet<>(originalCollection)}.
+     * @param <T> type of collection elements
+     * @param originalCollection collection to copy elements from.
+     * @return a mutable, ordered {@code Set} containing all the unique elements from the {@code Collection}.
+     * @throws NullPointerException if {@code originalCollection} is {@code null}.
+     * @since 1.1
+     */
+    public static <T> Set<T> copyOfOrderedMutable(Collection<? extends T> originalCollection) {
+        return new LinkedHashSet<>(originalCollection);
     }
 
 }

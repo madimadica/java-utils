@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.function.Function;
-import java.util.function.Supplier;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -518,6 +517,11 @@ public class SetsTests {
     }
 
     @Test
+    void CopyOfOrderedMutable_isOrdered() {
+        assertCopyOrderedSet(Sets::copyOfOrderedMutable);
+    }
+
+    @Test
     void copyOfMutable() {
         Set<Integer> original = Sets.ofMutable(1, null, 3);
         Set<Integer> copy = Sets.copyOfMutable(original);
@@ -558,5 +562,26 @@ public class SetsTests {
         assertNotSame(original, copy);
         assertEquals(original, copy);
         assertThrows(UnsupportedOperationException.class, () -> copy.add(5));
+    }
+
+
+    @Test
+    void copyOfOrderedMutable() {
+        Set<Integer> original = Sets.ofOrderedMutable(1, 2, 3);
+        Set<Integer> copy = Sets.copyOfOrderedMutable(original);
+        assertNotSame(original, copy);
+        assertEquals(original, copy);
+        copy.add(5);
+        assertNotEquals(original, copy);
+    }
+
+    @Test
+    void copyOfOrderedMutable_withNulls() {
+        Set<Integer> original = Sets.ofOrderedMutable(1, 2, null);
+        Set<Integer> copy = Sets.copyOfOrderedMutable(original);
+        assertNotSame(original, copy);
+        assertEquals(original, copy);
+        copy.add(5);
+        assertNotEquals(original, copy);
     }
 }
