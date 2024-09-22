@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -15,54 +14,54 @@ import static org.junit.jupiter.api.Assertions.*;
 public class TestSets {
 
     @Test
-    void emptyNullableSet() {
+    void ofNullable0() {
         Set<Integer> set = Sets.ofNullable();
         assertEquals(0, set.size());
         assertThrows(UnsupportedOperationException.class, () -> set.add(0));
     }
 
     @Test
-    void nullableSet1_castedNull() {
-        Set<Integer> set = Sets.ofNullable((Integer) null);
-        assertEquals(1, set.size());
-        assertThrows(UnsupportedOperationException.class, () -> set.add(0));
-    }
-
-    @Test
-    void nullableSet1_literalNull() {
-        assertThrows(NullPointerException.class, () -> Sets.ofNullable(null));
-    }
-
-    @Test
-    void nullableSet1() {
+    void ofNullable1() {
         Set<Integer> set = Sets.ofNullable(1);
         assertEquals(1, set.size());
         assertThrows(UnsupportedOperationException.class, () -> set.add(0));
     }
 
     @Test
-    void nullableSet2() {
+    void ofNullable1_nullCast() {
+        Set<Integer> set = Sets.ofNullable((Integer) null);
+        assertEquals(1, set.size());
+        assertThrows(UnsupportedOperationException.class, () -> set.add(0));
+    }
+
+    @Test
+    void ofNullable1_nullLiteral() {
+        assertThrows(NullPointerException.class, () -> Sets.ofNullable(null));
+    }
+
+    @Test
+    void ofNullable2() {
         Set<Integer> set = Sets.ofNullable(1, null);
         assertEquals(2, set.size());
         assertThrows(UnsupportedOperationException.class, () -> set.add(0));
     }
 
     @Test
-    void nullableSetDuplicates() {
+    void ofNullable_duplicatesA() {
         Set<Integer> set = Sets.ofNullable(1, null, 1);
         assertEquals(2, set.size());
         assertThrows(UnsupportedOperationException.class, () -> set.add(0));
     }
 
     @Test
-    void nullableSetDuplicateNulls() {
+    void ofNullable_duplicatesB() {
         Set<Integer> set = Sets.ofNullable(1, null, null);
         assertEquals(2, set.size());
         assertThrows(UnsupportedOperationException.class, () -> set.add(0));
     }
 
     @Test
-    void nullableSetVarargs() {
+    void ofNullable_11() {
         Set<Integer> set = Sets.ofNullable(1, 2, 3, 4, 5, 6, 7, 8, 9, null, 11);
         assertEquals(11, set.size());
         assertThrows(UnsupportedOperationException.class, () -> set.add(0));
@@ -82,6 +81,14 @@ public class TestSets {
         assertThrows(NullPointerException.class, () -> Sets.copyOfNullable(null));
     }
 
+
+
+
+
+
+
+
+
     @Test
     void ofOrdered0() {
         Set<String> emptySet = Sets.ofOrdered();
@@ -97,6 +104,16 @@ public class TestSets {
     }
 
     @Test
+    void ofOrdered1_nullLiteral() {
+        assertThrows(NullPointerException.class, () -> Sets.ofOrdered(null));
+    }
+
+    @Test
+    void ofOrdered1_nullCast() {
+        assertThrows(NullPointerException.class, () -> Sets.ofOrdered((Integer) null));
+    }
+
+    @Test
     void ofOrdered2() {
         Set<Integer> set = Sets.ofOrdered(0, 1);
         assertEquals(2, set.size());
@@ -104,6 +121,11 @@ public class TestSets {
         List<Integer> list = new ArrayList<>(set);
         assertEquals(list.get(0), 0);
         assertEquals(list.get(1), 1);
+    }
+
+    @Test
+    void ofOrdered2_null() {
+        assertThrows(NullPointerException.class, () -> Sets.ofOrdered(0, null));
     }
 
     @Test
@@ -115,6 +137,11 @@ public class TestSets {
         assertEquals(list.get(0), 0);
         assertEquals(list.get(1), 1);
         assertEquals(list.get(2), 2);
+    }
+
+    @Test
+    void ofOrdered3_null() {
+        assertThrows(NullPointerException.class, () -> Sets.ofOrdered(0, null, 2));
     }
 
     @Test
@@ -136,7 +163,7 @@ public class TestSets {
     }
 
     @Test
-    void ofOrdered2_duplicates() {
+    void ofOrdered_duplicatesA() {
         Set<Integer> set = Sets.ofOrdered(0, 0);
         assertEquals(1, set.size());
         assertThrows(UnsupportedOperationException.class, () -> set.add(0));
@@ -145,7 +172,7 @@ public class TestSets {
     }
 
     @Test
-    void ofOrdered3_duplicates() {
+    void ofOrdered_duplicatesB() {
         Set<Integer> set = Sets.ofOrdered(0, 0, 1);
         assertEquals(2, set.size());
         assertThrows(UnsupportedOperationException.class, () -> set.add(0));
@@ -154,25 +181,11 @@ public class TestSets {
         assertEquals(list.get(1), 1);
     }
 
-    @Test
-    void ofOrdered1_null() {
-        assertThrows(NullPointerException.class, () -> Sets.ofOrdered(null));
-    }
 
-    @Test
-    void ofOrdered1_nullTyped() {
-        assertThrows(NullPointerException.class, () -> Sets.ofOrdered((Integer) null));
-    }
 
-    @Test
-    void ofOrdered2_null() {
-        assertThrows(NullPointerException.class, () -> Sets.ofOrdered(0, null));
-    }
 
-    @Test
-    void ofOrdered3_null() {
-        assertThrows(NullPointerException.class, () -> Sets.ofOrdered(0, null, 2));
-    }
+
+
 
     @Test
     void ofMutable0() {
@@ -191,24 +204,24 @@ public class TestSets {
     }
 
     @Test
+    void ofMutable1_nullLiteral() {
+        assertThrows(NullPointerException.class, () -> Sets.ofMutable(null));
+    }
+
+    @Test
+    void ofMutable1_nullCast() {
+        Set<Integer> set = Sets.ofMutable((Integer) null);
+        assertEquals(set.size(), 1);
+        set.add(1);
+        assertEquals(set.size(), 2);
+    }
+
+    @Test
     void ofMutable2() {
         Set<Integer> set = Sets.ofMutable(0, 1);
         assertEquals(set.size(), 2);
         set.add(2);
         assertEquals(set.size(), 3);
-    }
-
-    @Test
-    void ofMutable1_null_array() {
-        assertThrows(NullPointerException.class, () -> Sets.ofMutable(null));
-    }
-
-    @Test
-    void ofMutable1_null_int() {
-        Set<Integer> set = Sets.ofMutable((Integer) null);
-        assertEquals(set.size(), 1);
-        set.add(1);
-        assertEquals(set.size(), 2);
     }
 
     @Test
@@ -218,6 +231,27 @@ public class TestSets {
         set.add(2);
         assertEquals(set.size(), 3);
     }
+
+    @Test
+    void ofMutable_duplicatesA() {
+        Set<Integer> set = Sets.ofMutable(0, 1, 1, 1);
+        assertEquals(set.size(), 2);
+        set.add(2);
+        assertEquals(set.size(), 3);
+    }
+
+    @Test
+    void ofMutable_duplicatesB() {
+        Set<Integer> set = Sets.ofMutable(0, null, null, null);
+        assertEquals(set.size(), 2);
+        set.add(2);
+        assertEquals(set.size(), 3);
+    }
+
+
+
+
+
 
     @Test
     void ofOrderedMutable0() {
@@ -239,12 +273,12 @@ public class TestSets {
     }
 
     @Test
-    void ofOrderedMutable1_null() {
+    void ofOrderedMutable1_nullLiteral() {
         assertThrows(NullPointerException.class, () -> Sets.ofOrderedMutable(null));
     }
 
     @Test
-    void ofOrderedMutable1_nullType() {
+    void ofOrderedMutable1_nullCast() {
         Set<Integer> set = Sets.ofOrderedMutable((Integer) null);
         assertEquals(1, set.size());
         set.add(1);
@@ -252,17 +286,6 @@ public class TestSets {
         List<Integer> list = new ArrayList<>(set);
         assertNull(list.get(0));
         assertEquals(1, list.get(1));
-    }
-
-    @Test
-    void ofOrderedMutable2_duplicates() {
-        Set<Integer> set = Sets.ofOrderedMutable(0, 0);
-        assertEquals(1, set.size());
-        set.add(1);
-        assertEquals(set.size(), 2);
-        List<Integer> list = new ArrayList<>(set);
-        assertEquals(list.get(0), 0);
-        assertEquals(list.get(1), 1);
     }
 
     @Test
@@ -277,17 +300,6 @@ public class TestSets {
         assertEquals(list.get(2), 2);
     }
 
-    @Test
-    void ofOrderedMutable3_duplicates() {
-        Set<Integer> set = Sets.ofOrderedMutable(0, 1, 0);
-        assertEquals(2, set.size());
-        set.add(2);
-        assertEquals(set.size(), 3);
-        List<Integer> list = new ArrayList<>(set);
-        assertEquals(list.get(0), 0);
-        assertEquals(list.get(1), 1);
-        assertEquals(list.get(2), 2);
-    }
 
     @Test
     void ofOrderedMutable10() {
@@ -310,7 +322,30 @@ public class TestSets {
     }
 
     @Test
-    void ofOrderedMutable10_duplicates() {
+    void ofOrderedMutable_duplicatesA() {
+        Set<Integer> set = Sets.ofOrderedMutable(0, 0);
+        assertEquals(1, set.size());
+        set.add(1);
+        assertEquals(set.size(), 2);
+        List<Integer> list = new ArrayList<>(set);
+        assertEquals(list.get(0), 0);
+        assertEquals(list.get(1), 1);
+    }
+
+    @Test
+    void ofOrderedMutable_duplicatesB() {
+        Set<Integer> set = Sets.ofOrderedMutable(0, 1, 0);
+        assertEquals(2, set.size());
+        set.add(2);
+        assertEquals(set.size(), 3);
+        List<Integer> list = new ArrayList<>(set);
+        assertEquals(list.get(0), 0);
+        assertEquals(list.get(1), 1);
+        assertEquals(list.get(2), 2);
+    }
+
+    @Test
+    void ofOrderedMutable_duplicatesC() {
         Set<Integer> set = Sets.ofOrderedMutable(0, 1, 0, 2, 0, 3, 0, 4, 0, 5);
         assertEquals(6, set.size());
         set.add(6);
