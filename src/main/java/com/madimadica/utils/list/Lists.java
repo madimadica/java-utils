@@ -1,8 +1,6 @@
 package com.madimadica.utils.list;
 
 import java.util.*;
-import java.util.function.Function;
-import java.util.stream.Collectors;
 
 /**
  * Static helper methods for dealing with Lists.
@@ -23,9 +21,11 @@ public abstract class Lists {
 
     /**
      * Return an unmodifiable list containing a variable number of elements.<br>
+     * The elements may be null.
      * @param <T> the {@code List}'s element type
-     * @param elements - the elements to be in the resulting list.
-     * @return a {@code List} containing the arguments in order.
+     * @param elements the elements to be in the resulting list.
+     * @return an unmodifiable {@code List} containing the arguments in order.
+     * @throws NullPointerException if {@code elements} is {@code null}, i.e. {@code ofNullable(null)}.
      * @since 1.1
      */
     @SafeVarargs
@@ -40,13 +40,42 @@ public abstract class Lists {
      * in their encounter order.<br>
      * @param <T> type of collection elements
      * @param originalCollection collection to copy elements from.
-     * @return a {@code List} containing all the {@code Collection}'s elements.
+     * @return an unmodifiable {@code List} containing all the {@code Collection}'s elements.
+     * @throws NullPointerException if {@code originalCollection} is {@code null}.
      * @since 1.1
      */
     public static <T> List<T> copyOfNullable(Collection<? extends T> originalCollection) {
-        List<T> result = new ArrayList<>(originalCollection.size());
-        result.addAll(originalCollection);
+        List<T> result = new ArrayList<>(originalCollection);
         return Collections.unmodifiableList(result);
     }
 
+    /**
+     * Return a modifiable list containing a variable number of elements.<br>
+     * Elements may be null.
+     * @param <T> the {@code List}'s element type
+     * @param elements the elements to be in the resulting list.
+     * @return a mutable {@code List} containing the arguments in order.
+     * @throws NullPointerException if {@code elements} is {@code null}, i.e. {@code ofMutable(null)}.
+     * @since 1.1
+     */
+    @SafeVarargs
+    public static <T> List<T> ofMutable(T... elements) {
+        List<T> result = new ArrayList<>(elements.length);
+        Collections.addAll(result, elements);
+        return result;
+    }
+
+    /**
+     * Return a mutable ArrayList containing all the elements in the {@code originalCollection}
+     * in their encounter order.<br>
+     * @param <T> type of collection elements
+     * @param originalCollection collection to copy elements from.
+     * @return a mutable {@code List} containing all the {@code Collection}'s elements.
+     * @see java.util.ArrayList#ArrayList(Collection)
+     * @throws NullPointerException if {@code originalCollection} is {@code null}.
+     * @since 1.1
+     */
+    public static <T> List<T> copyOfMutable(Collection<? extends T> originalCollection) {
+        return new ArrayList<>(originalCollection);
+    }
 }
