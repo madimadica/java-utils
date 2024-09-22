@@ -9,7 +9,6 @@ import java.util.*;
  * Provides implemented default methods on List in Java 9+.
  *
  * @see List
- * @see MutableLists
  * @since 1.1
  */
 public abstract class Lists {
