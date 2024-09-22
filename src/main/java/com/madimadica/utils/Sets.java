@@ -5,6 +5,59 @@ import java.util.*;
 /**
  * Static helper methods for dealing with Sets.
  * Return values are immutable (unmodifiable) sets.
+ * <h2>Factory Properies</h2>
+ * <p>
+ *     A summary of the properties of the resulting set created by the static factory methods is
+ *     described in this table. While not labeled in the table, this includes the equivalent {@code copyOf...} factories.
+ * </p>
+ * <table>
+ *     <thead>
+ *         <tr>
+ *             <th>Name</th>
+ *             <th>Nullable</th>
+ *             <th>Mutable</th>
+ *             <th>Ordered</th>
+ *         </tr>
+ *     </thead>
+ *     <tbody>
+ *         <tr>
+ *             <td>java.util.Set#of</td>
+ *             <td>no</td>
+ *             <td>no</td>
+ *             <td>no</td>
+ *         </tr>
+ *         <tr>
+ *             <td>Sets#ofNullable</td>
+ *             <td>yes</td>
+ *             <td>no</td>
+ *             <td>no</td>
+ *         </tr>
+ *         <tr>
+ *             <td>Sets#ofMutable</td>
+ *             <td>yes</td>
+ *             <td>yes</td>
+ *             <td>no</td>
+ *         </tr>
+ *         <tr>
+ *             <td>Sets#ofOrdered</td>
+ *             <td>no</td>
+ *             <td>no</td>
+ *             <td>yes</td>
+ *         </tr>
+ *         <tr>
+ *             <td>Sets#ofOrderedNullable</td>
+ *             <td>yes</td>
+ *             <td>no</td>
+ *             <td>yes</td>
+ *         </tr>
+ *         <tr>
+ *             <td>Sets#ofOrderedMutable</td>
+ *             <td>yes</td>
+ *             <td>yes</td>
+ *             <td>yes</td>
+ *         </tr>
+ *     </tbody>
+ * </table>
  *
  * @see Set
  * @since 1.1
