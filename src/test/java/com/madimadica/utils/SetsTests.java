@@ -1,4 +1,4 @@
-package com.madimadica.utils.set;
+package com.madimadica.utils;
 
 import org.junit.jupiter.api.Test;
 
@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 /**
  * Tests for {@link Sets}
  */
-public class TestSets {
+public class SetsTests {
 
     @Test
     void ofNullable0() {

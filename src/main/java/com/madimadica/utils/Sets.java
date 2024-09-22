@@ -1,4 +1,4 @@
-package com.madimadica.utils.set;
+package com.madimadica.utils;
 
 import java.util.*;
 

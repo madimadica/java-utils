@@ -1,4 +1,4 @@
-package com.madimadica.utils.list;
+package com.madimadica.utils;
 
 import org.junit.jupiter.api.Test;
 
@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 /**
  * Tests for {@link Lists}
  */
-public class TestLists {
+public class ListsTests {
 
     @Test
     void ofNullable0() {
