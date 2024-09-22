@@ -1,5 +1,8 @@
 package com.madimadica.utils.mapgen;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.*;
 
 /**
@@ -9,8 +12,28 @@ public class GenMaps {
 
     static final int MAX_ENTRIES = 12;
 
-    public static void main(String[] args) {
-        ofNullable();
+    public static void main(String[] args) throws IOException {
+        StringJoiner lines = new StringJoiner("\n");
+        lines.add("package com.madimadica.utils;");
+        lines.add("");
+        lines.add("import java.util.Collections;");
+        lines.add("import java.util.HashMap;");
+        lines.add("import java.util.Map;");
+        lines.add("");
+        lines.add("/**");
+        lines.add(" * Static utilities for Maps.");
+        lines.add(" */");
+        lines.add("public class Maps {");
+        lines.add("");
+
+        lines.add(getJavadocJoiner().add("Allow for user extension.").toString());
+        lines.add("    public Maps() {}");
+        lines.add("");
+        lines.add(ofNullable());
+        lines.add("");
+        lines.add("}");
+        lines.add("");
+        Files.writeString(Paths.get("./src/main/java/com/madimadica/utils/Maps.java"), lines.toString());
     }
 
     private static String assertNonNullKeys(int keyCount) {
@@ -28,23 +51,22 @@ public class GenMaps {
         return new StringJoiner("\n     * ", "    /**\n     * ", "\n     */");
     }
 
-    private static void ofNullable() {
+    private static String ofNullable() {
+        StringJoiner result = new StringJoiner("\n\n");
         for (int i = 1; i <= MAX_ENTRIES; ++i) {
-            ofNullable(i);
-            System.out.println();
+            List<String> javadoc = List.of(
+                    "Creates an immutable map with " + i + " " + (i == 1 ? "entry" : "entries") + ".",
+                    "<br>",
+                    "The values can be {@code null}, but keys must be non-null."
+            );
+            result.add(generate(i, "ofNullable", "HashMap", "Collections.unmodifiableMap(map)", javadoc));
         }
-
+        return result.toString();
     }
 
-    private static void ofNullable(int entryCount) {
-        generate(entryCount, "HashMap", "Collections.unmodifiableMap(map)");
-    }
-
-    private static void generate(int entryCount, String mapClass, String returnValue) {
+    private static String generate(int entryCount, String methodName, String mapClass, String returnValue, List<String> javadocDesc) {
         StringJoiner javadoc = getJavadocJoiner();
-        javadoc.add("Creates an immutable map with " + entryCount + " " + (entryCount == 1 ? "entry" : "entries") + ".");
-        javadoc.add("<br>");
-        javadoc.add("The values can be {@code null}, but keys must be non-null.");
+        javadocDesc.forEach(javadoc::add);
 
         for (int i = 1; i <= entryCount; ++i) {
             javadoc.add("@param k" + i + " key for entry " + i);
@@ -52,10 +74,10 @@ public class GenMaps {
         }
         javadoc.add("@return An immutable map with the given entries.");
         javadoc.add("@param <K> key type");
-        javadoc.add("@param <K> key type");
+        javadoc.add("@param <V> key type");
         javadoc.add("@throws NullPointerException if any key is {@code null}.");
 
-        StringJoiner signatureSj = new StringJoiner(", ", "public static <K, V> Map<K, V> ofNullable(", ")");
+        StringJoiner signatureSj = new StringJoiner(", ", "public static <K, V> Map<K, V> " + methodName + "(", ")");
         for (int j = 1; j <= entryCount; ++j) {
             String entryPair = String.format("K k%d, V v%<d", j);
             signatureSj.add(entryPair);
@@ -68,7 +90,7 @@ public class GenMaps {
             methodSj.add(String.format("        map.put(k%d, v%<d);", entryNumber));
         }
         methodSj.add("        return " + returnValue + ";");
-        System.out.println(methodSj);
+        return methodSj.toString();
     }
 
 }

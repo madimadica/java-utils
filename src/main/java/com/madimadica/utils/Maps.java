@@ -8,6 +8,12 @@ import java.util.Map;
  * Static utilities for Maps.
  */
 public class Maps {
+
+    /**
+     * Allow for user extension.
+     */
+    public Maps() {}
+
     /**
      * Creates an immutable map with 1 entry.
      * <br>
@@ -16,7 +22,7 @@ public class Maps {
      * @param v1 value for entry 1
      * @return An immutable map with the given entries.
      * @param <K> key type
-     * @param <K> key type
+     * @param <V> key type
      * @throws NullPointerException if any key is {@code null}.
      */
     public static <K, V> Map<K, V> ofNullable(K k1, V v1) {
@@ -38,7 +44,7 @@ public class Maps {
      * @param v2 value for entry 2
      * @return An immutable map with the given entries.
      * @param <K> key type
-     * @param <K> key type
+     * @param <V> key type
      * @throws NullPointerException if any key is {@code null}.
      */
     public static <K, V> Map<K, V> ofNullable(K k1, V v1, K k2, V v2) {
@@ -63,7 +69,7 @@ public class Maps {
      * @param v3 value for entry 3
      * @return An immutable map with the given entries.
      * @param <K> key type
-     * @param <K> key type
+     * @param <V> key type
      * @throws NullPointerException if any key is {@code null}.
      */
     public static <K, V> Map<K, V> ofNullable(K k1, V v1, K k2, V v2, K k3, V v3) {
@@ -91,7 +97,7 @@ public class Maps {
      * @param v4 value for entry 4
      * @return An immutable map with the given entries.
      * @param <K> key type
-     * @param <K> key type
+     * @param <V> key type
      * @throws NullPointerException if any key is {@code null}.
      */
     public static <K, V> Map<K, V> ofNullable(K k1, V v1, K k2, V v2, K k3, V v3, K k4, V v4) {
@@ -122,7 +128,7 @@ public class Maps {
      * @param v5 value for entry 5
      * @return An immutable map with the given entries.
      * @param <K> key type
-     * @param <K> key type
+     * @param <V> key type
      * @throws NullPointerException if any key is {@code null}.
      */
     public static <K, V> Map<K, V> ofNullable(K k1, V v1, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5) {
@@ -156,7 +162,7 @@ public class Maps {
      * @param v6 value for entry 6
      * @return An immutable map with the given entries.
      * @param <K> key type
-     * @param <K> key type
+     * @param <V> key type
      * @throws NullPointerException if any key is {@code null}.
      */
     public static <K, V> Map<K, V> ofNullable(K k1, V v1, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5, K k6, V v6) {
@@ -193,7 +199,7 @@ public class Maps {
      * @param v7 value for entry 7
      * @return An immutable map with the given entries.
      * @param <K> key type
-     * @param <K> key type
+     * @param <V> key type
      * @throws NullPointerException if any key is {@code null}.
      */
     public static <K, V> Map<K, V> ofNullable(K k1, V v1, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5, K k6, V v6, K k7, V v7) {
@@ -233,7 +239,7 @@ public class Maps {
      * @param v8 value for entry 8
      * @return An immutable map with the given entries.
      * @param <K> key type
-     * @param <K> key type
+     * @param <V> key type
      * @throws NullPointerException if any key is {@code null}.
      */
     public static <K, V> Map<K, V> ofNullable(K k1, V v1, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5, K k6, V v6, K k7, V v7, K k8, V v8) {
@@ -276,7 +282,7 @@ public class Maps {
      * @param v9 value for entry 9
      * @return An immutable map with the given entries.
      * @param <K> key type
-     * @param <K> key type
+     * @param <V> key type
      * @throws NullPointerException if any key is {@code null}.
      */
     public static <K, V> Map<K, V> ofNullable(K k1, V v1, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5, K k6, V v6, K k7, V v7, K k8, V v8, K k9, V v9) {
@@ -322,7 +328,7 @@ public class Maps {
      * @param v10 value for entry 10
      * @return An immutable map with the given entries.
      * @param <K> key type
-     * @param <K> key type
+     * @param <V> key type
      * @throws NullPointerException if any key is {@code null}.
      */
     public static <K, V> Map<K, V> ofNullable(K k1, V v1, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5, K k6, V v6, K k7, V v7, K k8, V v8, K k9, V v9, K k10, V v10) {
@@ -371,7 +377,7 @@ public class Maps {
      * @param v11 value for entry 11
      * @return An immutable map with the given entries.
      * @param <K> key type
-     * @param <K> key type
+     * @param <V> key type
      * @throws NullPointerException if any key is {@code null}.
      */
     public static <K, V> Map<K, V> ofNullable(K k1, V v1, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5, K k6, V v6, K k7, V v7, K k8, V v8, K k9, V v9, K k10, V v10, K k11, V v11) {
@@ -423,7 +429,7 @@ public class Maps {
      * @param v12 value for entry 12
      * @return An immutable map with the given entries.
      * @param <K> key type
-     * @param <K> key type
+     * @param <V> key type
      * @throws NullPointerException if any key is {@code null}.
      */
     public static <K, V> Map<K, V> ofNullable(K k1, V v1, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5, K k6, V v6, K k7, V v7, K k8, V v8, K k9, V v9, K k10, V v10, K k11, V v11, K k12, V v12) {
@@ -445,4 +451,5 @@ public class Maps {
         map.put(k12, v12);
         return Collections.unmodifiableMap(map);
     }
+
 }
