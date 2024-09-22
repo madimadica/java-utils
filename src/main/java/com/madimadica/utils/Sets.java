@@ -131,4 +131,19 @@ public abstract class Sets {
         return Collections.unmodifiableSet(result);
     }
 
+    /**
+     * Return a mutable set containing all the unique elements in {@code originalCollection}.
+     * <br>
+     * This is equivalent to invoking {@code new HashSet<>(originalCollection)}.
+     * @param <T> type of collection elements
+     * @param originalCollection collection to copy elements from.
+     * @return a mutable {@code Set} containing all the unique elements from the {@code Collection}.
+     * @throws NullPointerException if {@code originalCollection} is {@code null}.
+     * @since 1.1
+     */
+    public static <T> Set<T> copyOfMutable(Collection<? extends T> originalCollection) {
+        return new HashSet<>(originalCollection);
+    }
+
+
 }

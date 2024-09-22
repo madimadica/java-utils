@@ -449,12 +449,7 @@ public class SetsTests {
         assertEquals(list.get(6), 6);
     }
 
-    /**
-     * Given a factory, create a random array of distinct integers, as the varargs,
-     * and verify the resulting set has the same order.
-     * @param setFactory static factory method
-     */
-    void assertOrderedSet(Function<Integer[], Set<Integer>> setFactory) {
+    private static List<Integer> getRandomDistinctList() {
         // Create 100k random values, then shuffle
         Set<Integer> randomNumbers = new HashSet<>(100_000);
         while (randomNumbers.size() < 100_000) {
@@ -464,10 +459,20 @@ public class SetsTests {
         }
         var randomList = new ArrayList<>(randomNumbers);
         Collections.shuffle(randomList);
-        Set<Integer> result = setFactory.apply(randomList.toArray(new Integer[] {}));
+        return randomList;
+    }
+
+    /**
+     * Given a factory, create a random array of distinct integers, as the varargs,
+     * and verify the resulting set has the same order.
+     * @param setFactory static factory method
+     */
+    void assertOrderedSet(Function<Integer[], Set<Integer>> setFactory) {
+        var list = getRandomDistinctList();
+        Set<Integer> result = setFactory.apply(list.toArray(new Integer[] {}));
         int index = 0;
         for (Integer x : result) {
-            assertEquals(randomList.get(index), x);
+            assertEquals(list.get(index), x);
             index++;
         }
     }
@@ -485,5 +490,15 @@ public class SetsTests {
     @Test
     void ofOrderedMutable_isOrdered() {
         assertOrderedSet(Sets::ofOrderedMutable);
+    }
+
+    @Test
+    void copyOfMutable() {
+        Set<Integer> original = Sets.ofMutable(1, null, 3);
+        Set<Integer> copy = Sets.copyOfMutable(original);
+        assertNotSame(original, copy);
+        assertEquals(original, copy);
+        copy.add(5);
+        assertNotEquals(original, copy);
     }
 }
