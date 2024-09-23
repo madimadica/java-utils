@@ -8,7 +8,7 @@ import java.util.Map;
 /**
  * Static utilities for Maps.
  */
-public class Maps {
+public abstract class Maps {
 
     /**
      * Allow for user extension.

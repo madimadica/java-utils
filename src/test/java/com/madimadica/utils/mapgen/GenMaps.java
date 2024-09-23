@@ -24,7 +24,7 @@ public class GenMaps {
         lines.add("/**");
         lines.add(" * Static utilities for Maps.");
         lines.add(" */");
-        lines.add("public class Maps {");
+        lines.add("public abstract class Maps {");
         lines.add("");
 
         lines.add(getJavadocJoiner().add("Allow for user extension.").toString());
