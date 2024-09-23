@@ -2785,4 +2785,708 @@ public class MapsTests_Factories {
         assertDoesNotThrow(() -> Maps.ofOrderedMutable(1, "one", 2, "two", 3, "three", 4, "four", 5, "five", 6, "six", 7, "seven", 8, "eight", 9, "nine", 10, "ten", 11, "eleven", 12, "twelve").put(0, "zero"));
     }
 
+    @Test
+    void copyOfNullable1_whenCopy_thenEqualAndNotSame() {
+        Map<Integer, String> map1 = Maps.ofNullable(1, "one");
+        Map<Integer, String> copy1 = Maps.copyOfNullable(map1);
+        assertEquals(1, copy1.size());
+        assertEquals(map1, copy1);
+        assertNotSame(map1, copy1);
+    }
+
+    @Test
+    void copyOfNullable2_whenCopy_thenEqualAndNotSame() {
+        Map<Integer, String> map2 = Maps.ofNullable(1, "one", 2, "two");
+        Map<Integer, String> copy2 = Maps.copyOfNullable(map2);
+        assertEquals(2, copy2.size());
+        assertEquals(map2, copy2);
+        assertNotSame(map2, copy2);
+    }
+
+    @Test
+    void copyOfNullable3_whenCopy_thenEqualAndNotSame() {
+        Map<Integer, String> map3 = Maps.ofNullable(1, "one", 2, "two", 3, "three");
+        Map<Integer, String> copy3 = Maps.copyOfNullable(map3);
+        assertEquals(3, copy3.size());
+        assertEquals(map3, copy3);
+        assertNotSame(map3, copy3);
+    }
+
+    @Test
+    void copyOfNullable4_whenCopy_thenEqualAndNotSame() {
+        Map<Integer, String> map4 = Maps.ofNullable(1, "one", 2, "two", 3, "three", 4, "four");
+        Map<Integer, String> copy4 = Maps.copyOfNullable(map4);
+        assertEquals(4, copy4.size());
+        assertEquals(map4, copy4);
+        assertNotSame(map4, copy4);
+    }
+
+    @Test
+    void copyOfNullable5_whenCopy_thenEqualAndNotSame() {
+        Map<Integer, String> map5 = Maps.ofNullable(1, "one", 2, "two", 3, "three", 4, "four", 5, "five");
+        Map<Integer, String> copy5 = Maps.copyOfNullable(map5);
+        assertEquals(5, copy5.size());
+        assertEquals(map5, copy5);
+        assertNotSame(map5, copy5);
+    }
+
+    @Test
+    void copyOfNullable6_whenCopy_thenEqualAndNotSame() {
+        Map<Integer, String> map6 = Maps.ofNullable(1, "one", 2, "two", 3, "three", 4, "four", 5, "five", 6, "six");
+        Map<Integer, String> copy6 = Maps.copyOfNullable(map6);
+        assertEquals(6, copy6.size());
+        assertEquals(map6, copy6);
+        assertNotSame(map6, copy6);
+    }
+
+    @Test
+    void copyOfNullable7_whenCopy_thenEqualAndNotSame() {
+        Map<Integer, String> map7 = Maps.ofNullable(1, "one", 2, "two", 3, "three", 4, "four", 5, "five", 6, "six", 7, "seven");
+        Map<Integer, String> copy7 = Maps.copyOfNullable(map7);
+        assertEquals(7, copy7.size());
+        assertEquals(map7, copy7);
+        assertNotSame(map7, copy7);
+    }
+
+    @Test
+    void copyOfNullable8_whenCopy_thenEqualAndNotSame() {
+        Map<Integer, String> map8 = Maps.ofNullable(1, "one", 2, "two", 3, "three", 4, "four", 5, "five", 6, "six", 7, "seven", 8, "eight");
+        Map<Integer, String> copy8 = Maps.copyOfNullable(map8);
+        assertEquals(8, copy8.size());
+        assertEquals(map8, copy8);
+        assertNotSame(map8, copy8);
+    }
+
+    @Test
+    void copyOfNullable9_whenCopy_thenEqualAndNotSame() {
+        Map<Integer, String> map9 = Maps.ofNullable(1, "one", 2, "two", 3, "three", 4, "four", 5, "five", 6, "six", 7, "seven", 8, "eight", 9, "nine");
+        Map<Integer, String> copy9 = Maps.copyOfNullable(map9);
+        assertEquals(9, copy9.size());
+        assertEquals(map9, copy9);
+        assertNotSame(map9, copy9);
+    }
+
+    @Test
+    void copyOfNullable10_whenCopy_thenEqualAndNotSame() {
+        Map<Integer, String> map10 = Maps.ofNullable(1, "one", 2, "two", 3, "three", 4, "four", 5, "five", 6, "six", 7, "seven", 8, "eight", 9, "nine", 10, "ten");
+        Map<Integer, String> copy10 = Maps.copyOfNullable(map10);
+        assertEquals(10, copy10.size());
+        assertEquals(map10, copy10);
+        assertNotSame(map10, copy10);
+    }
+
+    @Test
+    void copyOfNullable11_whenCopy_thenEqualAndNotSame() {
+        Map<Integer, String> map11 = Maps.ofNullable(1, "one", 2, "two", 3, "three", 4, "four", 5, "five", 6, "six", 7, "seven", 8, "eight", 9, "nine", 10, "ten", 11, "eleven");
+        Map<Integer, String> copy11 = Maps.copyOfNullable(map11);
+        assertEquals(11, copy11.size());
+        assertEquals(map11, copy11);
+        assertNotSame(map11, copy11);
+    }
+
+    @Test
+    void copyOfNullable12_whenCopy_thenEqualAndNotSame() {
+        Map<Integer, String> map12 = Maps.ofNullable(1, "one", 2, "two", 3, "three", 4, "four", 5, "five", 6, "six", 7, "seven", 8, "eight", 9, "nine", 10, "ten", 11, "eleven", 12, "twelve");
+        Map<Integer, String> copy12 = Maps.copyOfNullable(map12);
+        assertEquals(12, copy12.size());
+        assertEquals(map12, copy12);
+        assertNotSame(map12, copy12);
+    }
+
+    @Test
+    void copyOfNullable_whenNullKeys_thenThrow() {
+        assertThrows(NullPointerException.class, () -> Maps.copyOfNullable(Maps.ofNullable(0, "zero", null, "one")));
+    }
+
+    @Test
+    void copyOfNullable_whenNullValues_thenDontThrow() {
+        assertDoesNotThrow(() -> Maps.copyOfNullable(Maps.ofNullable(0, "zero", 1, null)));
+    }
+
+    @Test
+    void copyOfNullable_whenMutate_thenThrow() {
+        assertThrows(UnsupportedOperationException.class, () -> Maps.copyOfNullable(Maps.ofNullable(0, "zero", 1, "one")).put(2, "two"));
+    }
+
+    @Test
+    void copyOfMutable1_whenCopy_thenEqualAndNotSame() {
+        Map<Integer, String> map1 = Maps.ofNullable(1, "one");
+        Map<Integer, String> copy1 = Maps.copyOfMutable(map1);
+        assertEquals(1, copy1.size());
+        assertEquals(map1, copy1);
+        assertNotSame(map1, copy1);
+    }
+
+    @Test
+    void copyOfMutable2_whenCopy_thenEqualAndNotSame() {
+        Map<Integer, String> map2 = Maps.ofNullable(1, "one", 2, "two");
+        Map<Integer, String> copy2 = Maps.copyOfMutable(map2);
+        assertEquals(2, copy2.size());
+        assertEquals(map2, copy2);
+        assertNotSame(map2, copy2);
+    }
+
+    @Test
+    void copyOfMutable3_whenCopy_thenEqualAndNotSame() {
+        Map<Integer, String> map3 = Maps.ofNullable(1, "one", 2, "two", 3, "three");
+        Map<Integer, String> copy3 = Maps.copyOfMutable(map3);
+        assertEquals(3, copy3.size());
+        assertEquals(map3, copy3);
+        assertNotSame(map3, copy3);
+    }
+
+    @Test
+    void copyOfMutable4_whenCopy_thenEqualAndNotSame() {
+        Map<Integer, String> map4 = Maps.ofNullable(1, "one", 2, "two", 3, "three", 4, "four");
+        Map<Integer, String> copy4 = Maps.copyOfMutable(map4);
+        assertEquals(4, copy4.size());
+        assertEquals(map4, copy4);
+        assertNotSame(map4, copy4);
+    }
+
+    @Test
+    void copyOfMutable5_whenCopy_thenEqualAndNotSame() {
+        Map<Integer, String> map5 = Maps.ofNullable(1, "one", 2, "two", 3, "three", 4, "four", 5, "five");
+        Map<Integer, String> copy5 = Maps.copyOfMutable(map5);
+        assertEquals(5, copy5.size());
+        assertEquals(map5, copy5);
+        assertNotSame(map5, copy5);
+    }
+
+    @Test
+    void copyOfMutable6_whenCopy_thenEqualAndNotSame() {
+        Map<Integer, String> map6 = Maps.ofNullable(1, "one", 2, "two", 3, "three", 4, "four", 5, "five", 6, "six");
+        Map<Integer, String> copy6 = Maps.copyOfMutable(map6);
+        assertEquals(6, copy6.size());
+        assertEquals(map6, copy6);
+        assertNotSame(map6, copy6);
+    }
+
+    @Test
+    void copyOfMutable7_whenCopy_thenEqualAndNotSame() {
+        Map<Integer, String> map7 = Maps.ofNullable(1, "one", 2, "two", 3, "three", 4, "four", 5, "five", 6, "six", 7, "seven");
+        Map<Integer, String> copy7 = Maps.copyOfMutable(map7);
+        assertEquals(7, copy7.size());
+        assertEquals(map7, copy7);
+        assertNotSame(map7, copy7);
+    }
+
+    @Test
+    void copyOfMutable8_whenCopy_thenEqualAndNotSame() {
+        Map<Integer, String> map8 = Maps.ofNullable(1, "one", 2, "two", 3, "three", 4, "four", 5, "five", 6, "six", 7, "seven", 8, "eight");
+        Map<Integer, String> copy8 = Maps.copyOfMutable(map8);
+        assertEquals(8, copy8.size());
+        assertEquals(map8, copy8);
+        assertNotSame(map8, copy8);
+    }
+
+    @Test
+    void copyOfMutable9_whenCopy_thenEqualAndNotSame() {
+        Map<Integer, String> map9 = Maps.ofNullable(1, "one", 2, "two", 3, "three", 4, "four", 5, "five", 6, "six", 7, "seven", 8, "eight", 9, "nine");
+        Map<Integer, String> copy9 = Maps.copyOfMutable(map9);
+        assertEquals(9, copy9.size());
+        assertEquals(map9, copy9);
+        assertNotSame(map9, copy9);
+    }
+
+    @Test
+    void copyOfMutable10_whenCopy_thenEqualAndNotSame() {
+        Map<Integer, String> map10 = Maps.ofNullable(1, "one", 2, "two", 3, "three", 4, "four", 5, "five", 6, "six", 7, "seven", 8, "eight", 9, "nine", 10, "ten");
+        Map<Integer, String> copy10 = Maps.copyOfMutable(map10);
+        assertEquals(10, copy10.size());
+        assertEquals(map10, copy10);
+        assertNotSame(map10, copy10);
+    }
+
+    @Test
+    void copyOfMutable11_whenCopy_thenEqualAndNotSame() {
+        Map<Integer, String> map11 = Maps.ofNullable(1, "one", 2, "two", 3, "three", 4, "four", 5, "five", 6, "six", 7, "seven", 8, "eight", 9, "nine", 10, "ten", 11, "eleven");
+        Map<Integer, String> copy11 = Maps.copyOfMutable(map11);
+        assertEquals(11, copy11.size());
+        assertEquals(map11, copy11);
+        assertNotSame(map11, copy11);
+    }
+
+    @Test
+    void copyOfMutable12_whenCopy_thenEqualAndNotSame() {
+        Map<Integer, String> map12 = Maps.ofNullable(1, "one", 2, "two", 3, "three", 4, "four", 5, "five", 6, "six", 7, "seven", 8, "eight", 9, "nine", 10, "ten", 11, "eleven", 12, "twelve");
+        Map<Integer, String> copy12 = Maps.copyOfMutable(map12);
+        assertEquals(12, copy12.size());
+        assertEquals(map12, copy12);
+        assertNotSame(map12, copy12);
+    }
+
+    @Test
+    void copyOfMutable_whenNullKeys_thenThrow() {
+        assertThrows(NullPointerException.class, () -> Maps.copyOfMutable(Maps.ofNullable(0, "zero", null, "one")));
+    }
+
+    @Test
+    void copyOfMutable_whenNullValues_thenDontThrow() {
+        assertDoesNotThrow(() -> Maps.copyOfMutable(Maps.ofNullable(0, "zero", 1, null)));
+    }
+
+    @Test
+    void copyOfMutable_whenMutate_thenDontThrow() {
+        assertDoesNotThrow(() -> Maps.copyOfMutable(Maps.ofNullable(0, "zero", 1, "one")).put(2, "two"));
+        assertDoesNotThrow(() -> Maps.copyOfMutable(Maps.ofNullable(0, "zero", 1, "one")).put(3, null));
+    }
+
+    @Test
+    void copyOfOrdered1_whenCopy_thenEqualAndNotSame() {
+        Map<Integer, String> map1 = Maps.ofNullable(1, "one");
+        Map<Integer, String> copy1 = Maps.copyOfOrdered(map1);
+        assertEquals(1, copy1.size());
+        assertEquals(map1, copy1);
+        assertNotSame(map1, copy1);
+    }
+
+    @Test
+    void copyOfOrdered2_whenCopy_thenEqualAndNotSame() {
+        Map<Integer, String> map2 = Maps.ofNullable(1, "one", 2, "two");
+        Map<Integer, String> copy2 = Maps.copyOfOrdered(map2);
+        assertEquals(2, copy2.size());
+        assertEquals(map2, copy2);
+        assertNotSame(map2, copy2);
+    }
+
+    @Test
+    void copyOfOrdered3_whenCopy_thenEqualAndNotSame() {
+        Map<Integer, String> map3 = Maps.ofNullable(1, "one", 2, "two", 3, "three");
+        Map<Integer, String> copy3 = Maps.copyOfOrdered(map3);
+        assertEquals(3, copy3.size());
+        assertEquals(map3, copy3);
+        assertNotSame(map3, copy3);
+    }
+
+    @Test
+    void copyOfOrdered4_whenCopy_thenEqualAndNotSame() {
+        Map<Integer, String> map4 = Maps.ofNullable(1, "one", 2, "two", 3, "three", 4, "four");
+        Map<Integer, String> copy4 = Maps.copyOfOrdered(map4);
+        assertEquals(4, copy4.size());
+        assertEquals(map4, copy4);
+        assertNotSame(map4, copy4);
+    }
+
+    @Test
+    void copyOfOrdered5_whenCopy_thenEqualAndNotSame() {
+        Map<Integer, String> map5 = Maps.ofNullable(1, "one", 2, "two", 3, "three", 4, "four", 5, "five");
+        Map<Integer, String> copy5 = Maps.copyOfOrdered(map5);
+        assertEquals(5, copy5.size());
+        assertEquals(map5, copy5);
+        assertNotSame(map5, copy5);
+    }
+
+    @Test
+    void copyOfOrdered6_whenCopy_thenEqualAndNotSame() {
+        Map<Integer, String> map6 = Maps.ofNullable(1, "one", 2, "two", 3, "three", 4, "four", 5, "five", 6, "six");
+        Map<Integer, String> copy6 = Maps.copyOfOrdered(map6);
+        assertEquals(6, copy6.size());
+        assertEquals(map6, copy6);
+        assertNotSame(map6, copy6);
+    }
+
+    @Test
+    void copyOfOrdered7_whenCopy_thenEqualAndNotSame() {
+        Map<Integer, String> map7 = Maps.ofNullable(1, "one", 2, "two", 3, "three", 4, "four", 5, "five", 6, "six", 7, "seven");
+        Map<Integer, String> copy7 = Maps.copyOfOrdered(map7);
+        assertEquals(7, copy7.size());
+        assertEquals(map7, copy7);
+        assertNotSame(map7, copy7);
+    }
+
+    @Test
+    void copyOfOrdered8_whenCopy_thenEqualAndNotSame() {
+        Map<Integer, String> map8 = Maps.ofNullable(1, "one", 2, "two", 3, "three", 4, "four", 5, "five", 6, "six", 7, "seven", 8, "eight");
+        Map<Integer, String> copy8 = Maps.copyOfOrdered(map8);
+        assertEquals(8, copy8.size());
+        assertEquals(map8, copy8);
+        assertNotSame(map8, copy8);
+    }
+
+    @Test
+    void copyOfOrdered9_whenCopy_thenEqualAndNotSame() {
+        Map<Integer, String> map9 = Maps.ofNullable(1, "one", 2, "two", 3, "three", 4, "four", 5, "five", 6, "six", 7, "seven", 8, "eight", 9, "nine");
+        Map<Integer, String> copy9 = Maps.copyOfOrdered(map9);
+        assertEquals(9, copy9.size());
+        assertEquals(map9, copy9);
+        assertNotSame(map9, copy9);
+    }
+
+    @Test
+    void copyOfOrdered10_whenCopy_thenEqualAndNotSame() {
+        Map<Integer, String> map10 = Maps.ofNullable(1, "one", 2, "two", 3, "three", 4, "four", 5, "five", 6, "six", 7, "seven", 8, "eight", 9, "nine", 10, "ten");
+        Map<Integer, String> copy10 = Maps.copyOfOrdered(map10);
+        assertEquals(10, copy10.size());
+        assertEquals(map10, copy10);
+        assertNotSame(map10, copy10);
+    }
+
+    @Test
+    void copyOfOrdered11_whenCopy_thenEqualAndNotSame() {
+        Map<Integer, String> map11 = Maps.ofNullable(1, "one", 2, "two", 3, "three", 4, "four", 5, "five", 6, "six", 7, "seven", 8, "eight", 9, "nine", 10, "ten", 11, "eleven");
+        Map<Integer, String> copy11 = Maps.copyOfOrdered(map11);
+        assertEquals(11, copy11.size());
+        assertEquals(map11, copy11);
+        assertNotSame(map11, copy11);
+    }
+
+    @Test
+    void copyOfOrdered12_whenCopy_thenEqualAndNotSame() {
+        Map<Integer, String> map12 = Maps.ofNullable(1, "one", 2, "two", 3, "three", 4, "four", 5, "five", 6, "six", 7, "seven", 8, "eight", 9, "nine", 10, "ten", 11, "eleven", 12, "twelve");
+        Map<Integer, String> copy12 = Maps.copyOfOrdered(map12);
+        assertEquals(12, copy12.size());
+        assertEquals(map12, copy12);
+        assertNotSame(map12, copy12);
+    }
+
+    @Test
+    void copyOfOrdered_whenNullKeys_thenThrow() {
+        assertThrows(NullPointerException.class, () -> Maps.copyOfOrdered(Maps.ofNullable(0, "zero", null, "one")));
+    }
+
+    @Test
+    void copyOfOrdered_whenNullValues_thenThrow() {
+        assertThrows(NullPointerException.class, () -> Maps.copyOfOrdered(Maps.ofNullable(0, "zero", 1, null)));
+    }
+
+    @Test
+    void copyOfOrdered_whenMutate_thenThrow() {
+        assertThrows(UnsupportedOperationException.class, () -> Maps.copyOfOrdered(Maps.ofNullable(0, "zero", 1, "one")).put(2, "two"));
+    }
+
+    @Test
+    void copyOfOrdered_whenCopy_thenIsOrdered() {
+        var mapToCopy = Maps.ofOrdered(1, "one", 2, "two", 3, "three", 4, "four", 5, "five", 6, "six", 7, "seven", 8, "eight", 9, "nine", 10, "ten");
+        var result = Maps.copyOfOrdered(mapToCopy);
+        assertNotSame(mapToCopy, result);
+        assertEquals(mapToCopy, result);
+        var entryList = new ArrayList<>(mapToCopy.entrySet());
+        assertEquals(1, entryList.get(0).getKey());
+        assertEquals("one", entryList.get(0).getValue());
+        assertEquals(2, entryList.get(1).getKey());
+        assertEquals("two", entryList.get(1).getValue());
+        assertEquals(3, entryList.get(2).getKey());
+        assertEquals("three", entryList.get(2).getValue());
+        assertEquals(4, entryList.get(3).getKey());
+        assertEquals("four", entryList.get(3).getValue());
+        assertEquals(5, entryList.get(4).getKey());
+        assertEquals("five", entryList.get(4).getValue());
+        assertEquals(6, entryList.get(5).getKey());
+        assertEquals("six", entryList.get(5).getValue());
+        assertEquals(7, entryList.get(6).getKey());
+        assertEquals("seven", entryList.get(6).getValue());
+        assertEquals(8, entryList.get(7).getKey());
+        assertEquals("eight", entryList.get(7).getValue());
+        assertEquals(9, entryList.get(8).getKey());
+        assertEquals("nine", entryList.get(8).getValue());
+        assertEquals(10, entryList.get(9).getKey());
+        assertEquals("ten", entryList.get(9).getValue());
+    }
+
+    @Test
+    void copyOfOrderedNullable1_whenCopy_thenEqualAndNotSame() {
+        Map<Integer, String> map1 = Maps.ofNullable(1, "one");
+        Map<Integer, String> copy1 = Maps.copyOfOrderedNullable(map1);
+        assertEquals(1, copy1.size());
+        assertEquals(map1, copy1);
+        assertNotSame(map1, copy1);
+    }
+
+    @Test
+    void copyOfOrderedNullable2_whenCopy_thenEqualAndNotSame() {
+        Map<Integer, String> map2 = Maps.ofNullable(1, "one", 2, "two");
+        Map<Integer, String> copy2 = Maps.copyOfOrderedNullable(map2);
+        assertEquals(2, copy2.size());
+        assertEquals(map2, copy2);
+        assertNotSame(map2, copy2);
+    }
+
+    @Test
+    void copyOfOrderedNullable3_whenCopy_thenEqualAndNotSame() {
+        Map<Integer, String> map3 = Maps.ofNullable(1, "one", 2, "two", 3, "three");
+        Map<Integer, String> copy3 = Maps.copyOfOrderedNullable(map3);
+        assertEquals(3, copy3.size());
+        assertEquals(map3, copy3);
+        assertNotSame(map3, copy3);
+    }
+
+    @Test
+    void copyOfOrderedNullable4_whenCopy_thenEqualAndNotSame() {
+        Map<Integer, String> map4 = Maps.ofNullable(1, "one", 2, "two", 3, "three", 4, "four");
+        Map<Integer, String> copy4 = Maps.copyOfOrderedNullable(map4);
+        assertEquals(4, copy4.size());
+        assertEquals(map4, copy4);
+        assertNotSame(map4, copy4);
+    }
+
+    @Test
+    void copyOfOrderedNullable5_whenCopy_thenEqualAndNotSame() {
+        Map<Integer, String> map5 = Maps.ofNullable(1, "one", 2, "two", 3, "three", 4, "four", 5, "five");
+        Map<Integer, String> copy5 = Maps.copyOfOrderedNullable(map5);
+        assertEquals(5, copy5.size());
+        assertEquals(map5, copy5);
+        assertNotSame(map5, copy5);
+    }
+
+    @Test
+    void copyOfOrderedNullable6_whenCopy_thenEqualAndNotSame() {
+        Map<Integer, String> map6 = Maps.ofNullable(1, "one", 2, "two", 3, "three", 4, "four", 5, "five", 6, "six");
+        Map<Integer, String> copy6 = Maps.copyOfOrderedNullable(map6);
+        assertEquals(6, copy6.size());
+        assertEquals(map6, copy6);
+        assertNotSame(map6, copy6);
+    }
+
+    @Test
+    void copyOfOrderedNullable7_whenCopy_thenEqualAndNotSame() {
+        Map<Integer, String> map7 = Maps.ofNullable(1, "one", 2, "two", 3, "three", 4, "four", 5, "five", 6, "six", 7, "seven");
+        Map<Integer, String> copy7 = Maps.copyOfOrderedNullable(map7);
+        assertEquals(7, copy7.size());
+        assertEquals(map7, copy7);
+        assertNotSame(map7, copy7);
+    }
+
+    @Test
+    void copyOfOrderedNullable8_whenCopy_thenEqualAndNotSame() {
+        Map<Integer, String> map8 = Maps.ofNullable(1, "one", 2, "two", 3, "three", 4, "four", 5, "five", 6, "six", 7, "seven", 8, "eight");
+        Map<Integer, String> copy8 = Maps.copyOfOrderedNullable(map8);
+        assertEquals(8, copy8.size());
+        assertEquals(map8, copy8);
+        assertNotSame(map8, copy8);
+    }
+
+    @Test
+    void copyOfOrderedNullable9_whenCopy_thenEqualAndNotSame() {
+        Map<Integer, String> map9 = Maps.ofNullable(1, "one", 2, "two", 3, "three", 4, "four", 5, "five", 6, "six", 7, "seven", 8, "eight", 9, "nine");
+        Map<Integer, String> copy9 = Maps.copyOfOrderedNullable(map9);
+        assertEquals(9, copy9.size());
+        assertEquals(map9, copy9);
+        assertNotSame(map9, copy9);
+    }
+
+    @Test
+    void copyOfOrderedNullable10_whenCopy_thenEqualAndNotSame() {
+        Map<Integer, String> map10 = Maps.ofNullable(1, "one", 2, "two", 3, "three", 4, "four", 5, "five", 6, "six", 7, "seven", 8, "eight", 9, "nine", 10, "ten");
+        Map<Integer, String> copy10 = Maps.copyOfOrderedNullable(map10);
+        assertEquals(10, copy10.size());
+        assertEquals(map10, copy10);
+        assertNotSame(map10, copy10);
+    }
+
+    @Test
+    void copyOfOrderedNullable11_whenCopy_thenEqualAndNotSame() {
+        Map<Integer, String> map11 = Maps.ofNullable(1, "one", 2, "two", 3, "three", 4, "four", 5, "five", 6, "six", 7, "seven", 8, "eight", 9, "nine", 10, "ten", 11, "eleven");
+        Map<Integer, String> copy11 = Maps.copyOfOrderedNullable(map11);
+        assertEquals(11, copy11.size());
+        assertEquals(map11, copy11);
+        assertNotSame(map11, copy11);
+    }
+
+    @Test
+    void copyOfOrderedNullable12_whenCopy_thenEqualAndNotSame() {
+        Map<Integer, String> map12 = Maps.ofNullable(1, "one", 2, "two", 3, "three", 4, "four", 5, "five", 6, "six", 7, "seven", 8, "eight", 9, "nine", 10, "ten", 11, "eleven", 12, "twelve");
+        Map<Integer, String> copy12 = Maps.copyOfOrderedNullable(map12);
+        assertEquals(12, copy12.size());
+        assertEquals(map12, copy12);
+        assertNotSame(map12, copy12);
+    }
+
+    @Test
+    void copyOfOrderedNullable_whenNullKeys_thenThrow() {
+        assertThrows(NullPointerException.class, () -> Maps.copyOfOrderedNullable(Maps.ofNullable(0, "zero", null, "one")));
+    }
+
+    @Test
+    void copyOfOrderedNullable_whenNullValues_thenDontThrow() {
+        assertDoesNotThrow(() -> Maps.copyOfOrderedNullable(Maps.ofNullable(0, "zero", 1, null)));
+    }
+
+    @Test
+    void copyOfOrderedNullable_whenMutate_thenThrow() {
+        assertThrows(UnsupportedOperationException.class, () -> Maps.copyOfOrderedNullable(Maps.ofNullable(0, "zero", 1, "one")).put(2, "two"));
+    }
+
+    @Test
+    void copyOfOrderedNullable_whenCopy_thenIsOrdered() {
+        var mapToCopy = Maps.ofOrdered(1, "one", 2, "two", 3, "three", 4, "four", 5, "five", 6, "six", 7, "seven", 8, "eight", 9, "nine", 10, "ten");
+        var result = Maps.copyOfOrderedNullable(mapToCopy);
+        assertNotSame(mapToCopy, result);
+        assertEquals(mapToCopy, result);
+        var entryList = new ArrayList<>(mapToCopy.entrySet());
+        assertEquals(1, entryList.get(0).getKey());
+        assertEquals("one", entryList.get(0).getValue());
+        assertEquals(2, entryList.get(1).getKey());
+        assertEquals("two", entryList.get(1).getValue());
+        assertEquals(3, entryList.get(2).getKey());
+        assertEquals("three", entryList.get(2).getValue());
+        assertEquals(4, entryList.get(3).getKey());
+        assertEquals("four", entryList.get(3).getValue());
+        assertEquals(5, entryList.get(4).getKey());
+        assertEquals("five", entryList.get(4).getValue());
+        assertEquals(6, entryList.get(5).getKey());
+        assertEquals("six", entryList.get(5).getValue());
+        assertEquals(7, entryList.get(6).getKey());
+        assertEquals("seven", entryList.get(6).getValue());
+        assertEquals(8, entryList.get(7).getKey());
+        assertEquals("eight", entryList.get(7).getValue());
+        assertEquals(9, entryList.get(8).getKey());
+        assertEquals("nine", entryList.get(8).getValue());
+        assertEquals(10, entryList.get(9).getKey());
+        assertEquals("ten", entryList.get(9).getValue());
+    }
+
+    @Test
+    void copyOfOrderedMutable1_whenCopy_thenEqualAndNotSame() {
+        Map<Integer, String> map1 = Maps.ofNullable(1, "one");
+        Map<Integer, String> copy1 = Maps.copyOfOrderedMutable(map1);
+        assertEquals(1, copy1.size());
+        assertEquals(map1, copy1);
+        assertNotSame(map1, copy1);
+    }
+
+    @Test
+    void copyOfOrderedMutable2_whenCopy_thenEqualAndNotSame() {
+        Map<Integer, String> map2 = Maps.ofNullable(1, "one", 2, "two");
+        Map<Integer, String> copy2 = Maps.copyOfOrderedMutable(map2);
+        assertEquals(2, copy2.size());
+        assertEquals(map2, copy2);
+        assertNotSame(map2, copy2);
+    }
+
+    @Test
+    void copyOfOrderedMutable3_whenCopy_thenEqualAndNotSame() {
+        Map<Integer, String> map3 = Maps.ofNullable(1, "one", 2, "two", 3, "three");
+        Map<Integer, String> copy3 = Maps.copyOfOrderedMutable(map3);
+        assertEquals(3, copy3.size());
+        assertEquals(map3, copy3);
+        assertNotSame(map3, copy3);
+    }
+
+    @Test
+    void copyOfOrderedMutable4_whenCopy_thenEqualAndNotSame() {
+        Map<Integer, String> map4 = Maps.ofNullable(1, "one", 2, "two", 3, "three", 4, "four");
+        Map<Integer, String> copy4 = Maps.copyOfOrderedMutable(map4);
+        assertEquals(4, copy4.size());
+        assertEquals(map4, copy4);
+        assertNotSame(map4, copy4);
+    }
+
+    @Test
+    void copyOfOrderedMutable5_whenCopy_thenEqualAndNotSame() {
+        Map<Integer, String> map5 = Maps.ofNullable(1, "one", 2, "two", 3, "three", 4, "four", 5, "five");
+        Map<Integer, String> copy5 = Maps.copyOfOrderedMutable(map5);
+        assertEquals(5, copy5.size());
+        assertEquals(map5, copy5);
+        assertNotSame(map5, copy5);
+    }
+
+    @Test
+    void copyOfOrderedMutable6_whenCopy_thenEqualAndNotSame() {
+        Map<Integer, String> map6 = Maps.ofNullable(1, "one", 2, "two", 3, "three", 4, "four", 5, "five", 6, "six");
+        Map<Integer, String> copy6 = Maps.copyOfOrderedMutable(map6);
+        assertEquals(6, copy6.size());
+        assertEquals(map6, copy6);
+        assertNotSame(map6, copy6);
+    }
+
+    @Test
+    void copyOfOrderedMutable7_whenCopy_thenEqualAndNotSame() {
+        Map<Integer, String> map7 = Maps.ofNullable(1, "one", 2, "two", 3, "three", 4, "four", 5, "five", 6, "six", 7, "seven");
+        Map<Integer, String> copy7 = Maps.copyOfOrderedMutable(map7);
+        assertEquals(7, copy7.size());
+        assertEquals(map7, copy7);
+        assertNotSame(map7, copy7);
+    }
+
+    @Test
+    void copyOfOrderedMutable8_whenCopy_thenEqualAndNotSame() {
+        Map<Integer, String> map8 = Maps.ofNullable(1, "one", 2, "two", 3, "three", 4, "four", 5, "five", 6, "six", 7, "seven", 8, "eight");
+        Map<Integer, String> copy8 = Maps.copyOfOrderedMutable(map8);
+        assertEquals(8, copy8.size());
+        assertEquals(map8, copy8);
+        assertNotSame(map8, copy8);
+    }
+
+    @Test
+    void copyOfOrderedMutable9_whenCopy_thenEqualAndNotSame() {
+        Map<Integer, String> map9 = Maps.ofNullable(1, "one", 2, "two", 3, "three", 4, "four", 5, "five", 6, "six", 7, "seven", 8, "eight", 9, "nine");
+        Map<Integer, String> copy9 = Maps.copyOfOrderedMutable(map9);
+        assertEquals(9, copy9.size());
+        assertEquals(map9, copy9);
+        assertNotSame(map9, copy9);
+    }
+
+    @Test
+    void copyOfOrderedMutable10_whenCopy_thenEqualAndNotSame() {
+        Map<Integer, String> map10 = Maps.ofNullable(1, "one", 2, "two", 3, "three", 4, "four", 5, "five", 6, "six", 7, "seven", 8, "eight", 9, "nine", 10, "ten");
+        Map<Integer, String> copy10 = Maps.copyOfOrderedMutable(map10);
+        assertEquals(10, copy10.size());
+        assertEquals(map10, copy10);
+        assertNotSame(map10, copy10);
+    }
+
+    @Test
+    void copyOfOrderedMutable11_whenCopy_thenEqualAndNotSame() {
+        Map<Integer, String> map11 = Maps.ofNullable(1, "one", 2, "two", 3, "three", 4, "four", 5, "five", 6, "six", 7, "seven", 8, "eight", 9, "nine", 10, "ten", 11, "eleven");
+        Map<Integer, String> copy11 = Maps.copyOfOrderedMutable(map11);
+        assertEquals(11, copy11.size());
+        assertEquals(map11, copy11);
+        assertNotSame(map11, copy11);
+    }
+
+    @Test
+    void copyOfOrderedMutable12_whenCopy_thenEqualAndNotSame() {
+        Map<Integer, String> map12 = Maps.ofNullable(1, "one", 2, "two", 3, "three", 4, "four", 5, "five", 6, "six", 7, "seven", 8, "eight", 9, "nine", 10, "ten", 11, "eleven", 12, "twelve");
+        Map<Integer, String> copy12 = Maps.copyOfOrderedMutable(map12);
+        assertEquals(12, copy12.size());
+        assertEquals(map12, copy12);
+        assertNotSame(map12, copy12);
+    }
+
+    @Test
+    void copyOfOrderedMutable_whenNullKeys_thenThrow() {
+        assertThrows(NullPointerException.class, () -> Maps.copyOfOrderedMutable(Maps.ofNullable(0, "zero", null, "one")));
+    }
+
+    @Test
+    void copyOfOrderedMutable_whenNullValues_thenDontThrow() {
+        assertDoesNotThrow(() -> Maps.copyOfOrderedMutable(Maps.ofNullable(0, "zero", 1, null)));
+    }
+
+    @Test
+    void copyOfOrderedMutable_whenMutate_thenDontThrow() {
+        assertDoesNotThrow(() -> Maps.copyOfOrderedMutable(Maps.ofNullable(0, "zero", 1, "one")).put(2, "two"));
+        assertDoesNotThrow(() -> Maps.copyOfOrderedMutable(Maps.ofNullable(0, "zero", 1, "one")).put(3, null));
+    }
+
+    @Test
+    void copyOfOrderedMutable_whenCopy_thenIsOrdered() {
+        var mapToCopy = Maps.ofOrdered(1, "one", 2, "two", 3, "three", 4, "four", 5, "five", 6, "six", 7, "seven", 8, "eight", 9, "nine", 10, "ten");
+        var result = Maps.copyOfOrderedMutable(mapToCopy);
+        assertNotSame(mapToCopy, result);
+        assertEquals(mapToCopy, result);
+        var entryList = new ArrayList<>(mapToCopy.entrySet());
+        assertEquals(1, entryList.get(0).getKey());
+        assertEquals("one", entryList.get(0).getValue());
+        assertEquals(2, entryList.get(1).getKey());
+        assertEquals("two", entryList.get(1).getValue());
+        assertEquals(3, entryList.get(2).getKey());
+        assertEquals("three", entryList.get(2).getValue());
+        assertEquals(4, entryList.get(3).getKey());
+        assertEquals("four", entryList.get(3).getValue());
+        assertEquals(5, entryList.get(4).getKey());
+        assertEquals("five", entryList.get(4).getValue());
+        assertEquals(6, entryList.get(5).getKey());
+        assertEquals("six", entryList.get(5).getValue());
+        assertEquals(7, entryList.get(6).getKey());
+        assertEquals("seven", entryList.get(6).getValue());
+        assertEquals(8, entryList.get(7).getKey());
+        assertEquals("eight", entryList.get(7).getValue());
+        assertEquals(9, entryList.get(8).getKey());
+        assertEquals("nine", entryList.get(8).getValue());
+        assertEquals(10, entryList.get(9).getKey());
+        assertEquals("ten", entryList.get(9).getValue());
+    }
+
 }

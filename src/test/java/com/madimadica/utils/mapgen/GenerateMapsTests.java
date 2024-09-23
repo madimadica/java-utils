@@ -55,6 +55,11 @@ public class GenerateMapsTests {
         sj.add(allTestsFor("ofOrdered", false, false, true));
         sj.add(allTestsFor("ofOrderedNullable", false, true, true));
         sj.add(allTestsFor("ofOrderedMutable", true, true, true));
+        sj.add(allCopyTestsFor("copyOfNullable", false, true, false));
+        sj.add(allCopyTestsFor("copyOfMutable", true, true, false));
+        sj.add(allCopyTestsFor("copyOfOrdered", false, false, true));
+        sj.add(allCopyTestsFor("copyOfOrderedNullable", false, true, true));
+        sj.add(allCopyTestsFor("copyOfOrderedMutable", true, true, true));
         sj.add("}");
         sj.add("");
         String testCode = sj.toString();
@@ -77,6 +82,25 @@ public class GenerateMapsTests {
         }
         sj.add(testAllMutability(srcMethodName, mutable));
         sj.add("");
+        return sj.toString();
+    }
+
+    private static String allCopyTestsFor(String srcMethodName, boolean mutable, boolean nullable, boolean ordered) {
+        StringJoiner sj = new StringJoiner("\n");
+        for (int i = 1; i <= 12; ++i) {
+            sj.add(testCopyFactoryCopies(srcMethodName, i));
+            sj.add("");
+        }
+        sj.add(testCopyFactoryNullKeys(srcMethodName));
+        sj.add("");
+        sj.add(testCopyFactoryNullValues(srcMethodName, nullable));
+        sj.add("");
+        sj.add(testCopyFactoryResultMutability(srcMethodName, mutable));
+        sj.add("");
+        if (ordered) {
+            sj.add(testCopyFactoryResultOrdering(srcMethodName));
+            sj.add("");
+        }
         return sj.toString();
     }
 
@@ -189,6 +213,73 @@ public class GenerateMapsTests {
             lines.add("assertEquals(" + numberPadding + " entryList.get(" + (i - 1) + ").getValue());");
         }
         return genTest(srcMethodName + entrySize + "_thenOrdered", lines);
+    }
+
+    private static String testCopyFactoryCopies(String srcMethodName, int i) {
+        List<String> lines = new ArrayList<>();
+        String factoryCall = getNormalFactoryCall("ofNullable", i);
+        lines.add("Map<Integer, String> map" + i + " = " + factoryCall + ";");
+        lines.add("Map<Integer, String> copy" + i + " = Maps." + srcMethodName + "(map" + i + ");");
+        lines.add("assertEquals(" + i + ", copy" + i + ".size());");
+        lines.add("assertEquals(map" + i + ", copy" + i + ");");
+        lines.add("assertNotSame(map" + i + ", copy" + i + ");");
+
+        return genTest(srcMethodName + i + "_whenCopy_thenEqualAndNotSame", lines);
+    }
+
+    private static String testCopyFactoryNullKeys(String srcMethodName) {
+        return genTest(
+                srcMethodName + "_whenNullKeys_thenThrow",
+                List.of("assertThrows(NullPointerException.class, () -> Maps." + srcMethodName + "(Maps.ofNullable(0, \"zero\", null, \"one\")));")
+        );
+    }
+
+    private static String testCopyFactoryNullValues(String srcMethodName, boolean nullable) {
+        if (nullable) {
+            return genTest(
+                    srcMethodName + "_whenNullValues_thenDontThrow",
+                    List.of("assertDoesNotThrow(() -> Maps." + srcMethodName + "(Maps.ofNullable(0, \"zero\", 1, null)));")
+            );
+        } else {
+            return genTest(
+                    srcMethodName + "_whenNullValues_thenThrow",
+                    List.of("assertThrows(NullPointerException.class, () -> Maps." + srcMethodName + "(Maps.ofNullable(0, \"zero\", 1, null)));")
+            );
+        }
+    }
+
+    private static String testCopyFactoryResultMutability(String srcMethodName, boolean mutable) {
+        if (mutable) {
+            return genTest(
+                    srcMethodName + "_whenMutate_thenDontThrow",
+                    List.of(
+                            "assertDoesNotThrow(() -> Maps." + srcMethodName + "(Maps.ofNullable(0, \"zero\", 1, \"one\")).put(2, \"two\"));",
+                            "assertDoesNotThrow(() -> Maps." + srcMethodName + "(Maps.ofNullable(0, \"zero\", 1, \"one\")).put(3, null));" // Should allow nulls
+                    )
+            );
+        } else {
+            return genTest(
+                    srcMethodName + "_whenMutate_thenThrow",
+                    List.of("assertThrows(UnsupportedOperationException.class, () -> Maps." + srcMethodName + "(Maps.ofNullable(0, \"zero\", 1, \"one\")).put(2, \"two\"));")
+            );
+        }
+    }
+
+    private static String testCopyFactoryResultOrdering(String srcMethodName) {
+        List<String> lines = new ArrayList<>();
+        lines.add("var mapToCopy = " + getNormalFactoryCall("ofOrdered", 10) + ";");
+        lines.add(String.format("var result = Maps.%s(mapToCopy);", srcMethodName));
+        lines.add("assertNotSame(mapToCopy, result);");
+        lines.add("assertEquals(mapToCopy, result);");
+        lines.add("var entryList = new ArrayList<>(mapToCopy.entrySet());");
+        for (int i = 1; i <= 10; ++i) {
+            lines.add("assertEquals(" + i + ", entryList.get(" + (i-1) + ").getKey());");
+            lines.add("assertEquals(\"" + NUMBER_NAME_MAP.get(i) + "\", entryList.get(" + (i-1) + ").getValue());");
+        }
+        return genTest(
+                    srcMethodName + "_whenCopy_thenIsOrdered",
+                lines
+        );
     }
 
 }
