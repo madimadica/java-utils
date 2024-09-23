@@ -44,9 +44,10 @@ public class GenMaps {
     }
 
     private static String assertNonNullArgs(int keyCount, boolean allowNullValues) {
+        String exceptionMessage = allowNullValues ? "Map keys cannot be null" : "Map keys and values cannot be null";
         StringJoiner nonNullIf = new StringJoiner(
                 " || ",
-                "        if (", ") {\n            throw new NullPointerException(\"Map keys cannot be null\");\n        }"
+                "        if (", ") {\n            throw new NullPointerException(\"" + exceptionMessage + "\");\n        }"
         );
         for (int i = 1; i <= keyCount; ++i) {
             nonNullIf.add("k" + i + " == null");

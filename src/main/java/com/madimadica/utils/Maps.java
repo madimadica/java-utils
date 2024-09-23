@@ -904,7 +904,7 @@ public class Maps {
      */
     public static <K, V> Map<K, V> ofOrdered(K k1, V v1) {
         if (k1 == null || v1 == null) {
-            throw new NullPointerException("Map keys cannot be null");
+            throw new NullPointerException("Map keys and values cannot be null");
         }
         Map<K, V> map = new LinkedHashMap<>(1);
         map.put(k1, v1);
@@ -926,7 +926,7 @@ public class Maps {
      */
     public static <K, V> Map<K, V> ofOrdered(K k1, V v1, K k2, V v2) {
         if (k1 == null || v1 == null || k2 == null || v2 == null) {
-            throw new NullPointerException("Map keys cannot be null");
+            throw new NullPointerException("Map keys and values cannot be null");
         }
         Map<K, V> map = new LinkedHashMap<>(2);
         map.put(k1, v1);
@@ -951,7 +951,7 @@ public class Maps {
      */
     public static <K, V> Map<K, V> ofOrdered(K k1, V v1, K k2, V v2, K k3, V v3) {
         if (k1 == null || v1 == null || k2 == null || v2 == null || k3 == null || v3 == null) {
-            throw new NullPointerException("Map keys cannot be null");
+            throw new NullPointerException("Map keys and values cannot be null");
         }
         Map<K, V> map = new LinkedHashMap<>(3);
         map.put(k1, v1);
@@ -979,7 +979,7 @@ public class Maps {
      */
     public static <K, V> Map<K, V> ofOrdered(K k1, V v1, K k2, V v2, K k3, V v3, K k4, V v4) {
         if (k1 == null || v1 == null || k2 == null || v2 == null || k3 == null || v3 == null || k4 == null || v4 == null) {
-            throw new NullPointerException("Map keys cannot be null");
+            throw new NullPointerException("Map keys and values cannot be null");
         }
         Map<K, V> map = new LinkedHashMap<>(4);
         map.put(k1, v1);
@@ -1010,7 +1010,7 @@ public class Maps {
      */
     public static <K, V> Map<K, V> ofOrdered(K k1, V v1, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5) {
         if (k1 == null || v1 == null || k2 == null || v2 == null || k3 == null || v3 == null || k4 == null || v4 == null || k5 == null || v5 == null) {
-            throw new NullPointerException("Map keys cannot be null");
+            throw new NullPointerException("Map keys and values cannot be null");
         }
         Map<K, V> map = new LinkedHashMap<>(5);
         map.put(k1, v1);
@@ -1044,7 +1044,7 @@ public class Maps {
      */
     public static <K, V> Map<K, V> ofOrdered(K k1, V v1, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5, K k6, V v6) {
         if (k1 == null || v1 == null || k2 == null || v2 == null || k3 == null || v3 == null || k4 == null || v4 == null || k5 == null || v5 == null || k6 == null || v6 == null) {
-            throw new NullPointerException("Map keys cannot be null");
+            throw new NullPointerException("Map keys and values cannot be null");
         }
         Map<K, V> map = new LinkedHashMap<>(6);
         map.put(k1, v1);
@@ -1081,7 +1081,7 @@ public class Maps {
      */
     public static <K, V> Map<K, V> ofOrdered(K k1, V v1, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5, K k6, V v6, K k7, V v7) {
         if (k1 == null || v1 == null || k2 == null || v2 == null || k3 == null || v3 == null || k4 == null || v4 == null || k5 == null || v5 == null || k6 == null || v6 == null || k7 == null || v7 == null) {
-            throw new NullPointerException("Map keys cannot be null");
+            throw new NullPointerException("Map keys and values cannot be null");
         }
         Map<K, V> map = new LinkedHashMap<>(7);
         map.put(k1, v1);
@@ -1121,7 +1121,7 @@ public class Maps {
      */
     public static <K, V> Map<K, V> ofOrdered(K k1, V v1, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5, K k6, V v6, K k7, V v7, K k8, V v8) {
         if (k1 == null || v1 == null || k2 == null || v2 == null || k3 == null || v3 == null || k4 == null || v4 == null || k5 == null || v5 == null || k6 == null || v6 == null || k7 == null || v7 == null || k8 == null || v8 == null) {
-            throw new NullPointerException("Map keys cannot be null");
+            throw new NullPointerException("Map keys and values cannot be null");
         }
         Map<K, V> map = new LinkedHashMap<>(8);
         map.put(k1, v1);
@@ -1164,7 +1164,7 @@ public class Maps {
      */
     public static <K, V> Map<K, V> ofOrdered(K k1, V v1, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5, K k6, V v6, K k7, V v7, K k8, V v8, K k9, V v9) {
         if (k1 == null || v1 == null || k2 == null || v2 == null || k3 == null || v3 == null || k4 == null || v4 == null || k5 == null || v5 == null || k6 == null || v6 == null || k7 == null || v7 == null || k8 == null || v8 == null || k9 == null || v9 == null) {
-            throw new NullPointerException("Map keys cannot be null");
+            throw new NullPointerException("Map keys and values cannot be null");
         }
         Map<K, V> map = new LinkedHashMap<>(9);
         map.put(k1, v1);
@@ -1210,7 +1210,7 @@ public class Maps {
      */
     public static <K, V> Map<K, V> ofOrdered(K k1, V v1, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5, K k6, V v6, K k7, V v7, K k8, V v8, K k9, V v9, K k10, V v10) {
         if (k1 == null || v1 == null || k2 == null || v2 == null || k3 == null || v3 == null || k4 == null || v4 == null || k5 == null || v5 == null || k6 == null || v6 == null || k7 == null || v7 == null || k8 == null || v8 == null || k9 == null || v9 == null || k10 == null || v10 == null) {
-            throw new NullPointerException("Map keys cannot be null");
+            throw new NullPointerException("Map keys and values cannot be null");
         }
         Map<K, V> map = new LinkedHashMap<>(10);
         map.put(k1, v1);
@@ -1259,7 +1259,7 @@ public class Maps {
      */
     public static <K, V> Map<K, V> ofOrdered(K k1, V v1, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5, K k6, V v6, K k7, V v7, K k8, V v8, K k9, V v9, K k10, V v10, K k11, V v11) {
         if (k1 == null || v1 == null || k2 == null || v2 == null || k3 == null || v3 == null || k4 == null || v4 == null || k5 == null || v5 == null || k6 == null || v6 == null || k7 == null || v7 == null || k8 == null || v8 == null || k9 == null || v9 == null || k10 == null || v10 == null || k11 == null || v11 == null) {
-            throw new NullPointerException("Map keys cannot be null");
+            throw new NullPointerException("Map keys and values cannot be null");
         }
         Map<K, V> map = new LinkedHashMap<>(11);
         map.put(k1, v1);
@@ -1311,7 +1311,7 @@ public class Maps {
      */
     public static <K, V> Map<K, V> ofOrdered(K k1, V v1, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5, K k6, V v6, K k7, V v7, K k8, V v8, K k9, V v9, K k10, V v10, K k11, V v11, K k12, V v12) {
         if (k1 == null || v1 == null || k2 == null || v2 == null || k3 == null || v3 == null || k4 == null || v4 == null || k5 == null || v5 == null || k6 == null || v6 == null || k7 == null || v7 == null || k8 == null || v8 == null || k9 == null || v9 == null || k10 == null || v10 == null || k11 == null || v11 == null || k12 == null || v12 == null) {
-            throw new NullPointerException("Map keys cannot be null");
+            throw new NullPointerException("Map keys and values cannot be null");
         }
         Map<K, V> map = new LinkedHashMap<>(12);
         map.put(k1, v1);
