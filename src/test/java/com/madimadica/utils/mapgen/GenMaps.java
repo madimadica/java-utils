@@ -70,7 +70,7 @@ public class GenMaps {
                     "<br>",
                     "The values can be {@code null}, but keys must be non-null."
             );
-            result.add(generate(i, "ofNullable", "HashMap", "Collections.unmodifiableMap(map)", javadoc, true));
+            result.add(generate(i, "ofNullable", "HashMap", "Collections.unmodifiableMap(map)", javadoc, true, "An unordered immutable map with the given entries."));
         }
         return result.toString();
     }
@@ -83,7 +83,7 @@ public class GenMaps {
                     "<br>",
                     "The values can be {@code null}, but keys must be non-null."
             );
-            result.add(generate(i, "ofMutable", "HashMap", "map", javadoc, true));
+            result.add(generate(i, "ofMutable", "HashMap", "map", javadoc, true, "An unordered mutable map with the given entries."));
         }
         return result.toString();
     }
@@ -96,7 +96,7 @@ public class GenMaps {
                     "<br>",
                     "Neither the keys nor values may be {@code null}."
             );
-            result.add(generate(i, "ofOrdered", "LinkedHashMap", "Collections.unmodifiableMap(map)", javadoc, false));
+            result.add(generate(i, "ofOrdered", "LinkedHashMap", "Collections.unmodifiableMap(map)", javadoc, false, "An ordered immutable map with the given entries."));
         }
         return result.toString();
     }
@@ -109,12 +109,12 @@ public class GenMaps {
                     "<br>",
                     "The values can be {@code null}, but keys must be non-null."
             );
-            result.add(generate(i, "ofOrderedNullable", "LinkedHashMap", "Collections.unmodifiableMap(map)", javadoc, true));
+            result.add(generate(i, "ofOrderedNullable", "LinkedHashMap", "Collections.unmodifiableMap(map)", javadoc, true, "An ordered immutable map with the given entries."));
         }
         return result.toString();
     }
 
-    private static String generate(int entryCount, String methodName, String mapClass, String returnValue, List<String> javadocDesc, boolean allowNullValues) {
+    private static String generate(int entryCount, String methodName, String mapClass, String returnValue, List<String> javadocDesc, boolean allowNullValues, String javadocReturn) {
         StringJoiner javadoc = getJavadocJoiner();
         javadocDesc.forEach(javadoc::add);
 
@@ -122,7 +122,7 @@ public class GenMaps {
             javadoc.add("@param k" + i + " key for entry " + i);
             javadoc.add("@param v" + i + " value for entry " + i);
         }
-        javadoc.add("@return An immutable map with the given entries.");
+        javadoc.add("@return " + javadocReturn);
         javadoc.add("@param <K> key type");
         javadoc.add("@param <V> key type");
         if (allowNullValues) {

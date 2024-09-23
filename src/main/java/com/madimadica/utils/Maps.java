@@ -21,7 +21,7 @@ public class Maps {
      * The values can be {@code null}, but keys must be non-null.
      * @param k1 key for entry 1
      * @param v1 value for entry 1
-     * @return An immutable map with the given entries.
+     * @return An unordered immutable map with the given entries.
      * @param <K> key type
      * @param <V> key type
      * @throws NullPointerException if any key is {@code null}.
@@ -43,7 +43,7 @@ public class Maps {
      * @param v1 value for entry 1
      * @param k2 key for entry 2
      * @param v2 value for entry 2
-     * @return An immutable map with the given entries.
+     * @return An unordered immutable map with the given entries.
      * @param <K> key type
      * @param <V> key type
      * @throws NullPointerException if any key is {@code null}.
@@ -68,7 +68,7 @@ public class Maps {
      * @param v2 value for entry 2
      * @param k3 key for entry 3
      * @param v3 value for entry 3
-     * @return An immutable map with the given entries.
+     * @return An unordered immutable map with the given entries.
      * @param <K> key type
      * @param <V> key type
      * @throws NullPointerException if any key is {@code null}.
@@ -96,7 +96,7 @@ public class Maps {
      * @param v3 value for entry 3
      * @param k4 key for entry 4
      * @param v4 value for entry 4
-     * @return An immutable map with the given entries.
+     * @return An unordered immutable map with the given entries.
      * @param <K> key type
      * @param <V> key type
      * @throws NullPointerException if any key is {@code null}.
@@ -127,7 +127,7 @@ public class Maps {
      * @param v4 value for entry 4
      * @param k5 key for entry 5
      * @param v5 value for entry 5
-     * @return An immutable map with the given entries.
+     * @return An unordered immutable map with the given entries.
      * @param <K> key type
      * @param <V> key type
      * @throws NullPointerException if any key is {@code null}.
@@ -161,7 +161,7 @@ public class Maps {
      * @param v5 value for entry 5
      * @param k6 key for entry 6
      * @param v6 value for entry 6
-     * @return An immutable map with the given entries.
+     * @return An unordered immutable map with the given entries.
      * @param <K> key type
      * @param <V> key type
      * @throws NullPointerException if any key is {@code null}.
@@ -198,7 +198,7 @@ public class Maps {
      * @param v6 value for entry 6
      * @param k7 key for entry 7
      * @param v7 value for entry 7
-     * @return An immutable map with the given entries.
+     * @return An unordered immutable map with the given entries.
      * @param <K> key type
      * @param <V> key type
      * @throws NullPointerException if any key is {@code null}.
@@ -238,7 +238,7 @@ public class Maps {
      * @param v7 value for entry 7
      * @param k8 key for entry 8
      * @param v8 value for entry 8
-     * @return An immutable map with the given entries.
+     * @return An unordered immutable map with the given entries.
      * @param <K> key type
      * @param <V> key type
      * @throws NullPointerException if any key is {@code null}.
@@ -281,7 +281,7 @@ public class Maps {
      * @param v8 value for entry 8
      * @param k9 key for entry 9
      * @param v9 value for entry 9
-     * @return An immutable map with the given entries.
+     * @return An unordered immutable map with the given entries.
      * @param <K> key type
      * @param <V> key type
      * @throws NullPointerException if any key is {@code null}.
@@ -327,7 +327,7 @@ public class Maps {
      * @param v9 value for entry 9
      * @param k10 key for entry 10
      * @param v10 value for entry 10
-     * @return An immutable map with the given entries.
+     * @return An unordered immutable map with the given entries.
      * @param <K> key type
      * @param <V> key type
      * @throws NullPointerException if any key is {@code null}.
@@ -376,7 +376,7 @@ public class Maps {
      * @param v10 value for entry 10
      * @param k11 key for entry 11
      * @param v11 value for entry 11
-     * @return An immutable map with the given entries.
+     * @return An unordered immutable map with the given entries.
      * @param <K> key type
      * @param <V> key type
      * @throws NullPointerException if any key is {@code null}.
@@ -428,7 +428,7 @@ public class Maps {
      * @param v11 value for entry 11
      * @param k12 key for entry 12
      * @param v12 value for entry 12
-     * @return An immutable map with the given entries.
+     * @return An unordered immutable map with the given entries.
      * @param <K> key type
      * @param <V> key type
      * @throws NullPointerException if any key is {@code null}.
@@ -459,7 +459,7 @@ public class Maps {
      * The values can be {@code null}, but keys must be non-null.
      * @param k1 key for entry 1
      * @param v1 value for entry 1
-     * @return An immutable map with the given entries.
+     * @return An unordered mutable map with the given entries.
      * @param <K> key type
      * @param <V> key type
      * @throws NullPointerException if any key is {@code null}.
@@ -481,7 +481,7 @@ public class Maps {
      * @param v1 value for entry 1
      * @param k2 key for entry 2
      * @param v2 value for entry 2
-     * @return An immutable map with the given entries.
+     * @return An unordered mutable map with the given entries.
      * @param <K> key type
      * @param <V> key type
      * @throws NullPointerException if any key is {@code null}.
@@ -506,7 +506,7 @@ public class Maps {
      * @param v2 value for entry 2
      * @param k3 key for entry 3
      * @param v3 value for entry 3
-     * @return An immutable map with the given entries.
+     * @return An unordered mutable map with the given entries.
      * @param <K> key type
      * @param <V> key type
      * @throws NullPointerException if any key is {@code null}.
@@ -534,7 +534,7 @@ public class Maps {
      * @param v3 value for entry 3
      * @param k4 key for entry 4
      * @param v4 value for entry 4
-     * @return An immutable map with the given entries.
+     * @return An unordered mutable map with the given entries.
      * @param <K> key type
      * @param <V> key type
      * @throws NullPointerException if any key is {@code null}.
@@ -565,7 +565,7 @@ public class Maps {
      * @param v4 value for entry 4
      * @param k5 key for entry 5
      * @param v5 value for entry 5
-     * @return An immutable map with the given entries.
+     * @return An unordered mutable map with the given entries.
      * @param <K> key type
      * @param <V> key type
      * @throws NullPointerException if any key is {@code null}.
@@ -599,7 +599,7 @@ public class Maps {
      * @param v5 value for entry 5
      * @param k6 key for entry 6
      * @param v6 value for entry 6
-     * @return An immutable map with the given entries.
+     * @return An unordered mutable map with the given entries.
      * @param <K> key type
      * @param <V> key type
      * @throws NullPointerException if any key is {@code null}.
@@ -636,7 +636,7 @@ public class Maps {
      * @param v6 value for entry 6
      * @param k7 key for entry 7
      * @param v7 value for entry 7
-     * @return An immutable map with the given entries.
+     * @return An unordered mutable map with the given entries.
      * @param <K> key type
      * @param <V> key type
      * @throws NullPointerException if any key is {@code null}.
@@ -676,7 +676,7 @@ public class Maps {
      * @param v7 value for entry 7
      * @param k8 key for entry 8
      * @param v8 value for entry 8
-     * @return An immutable map with the given entries.
+     * @return An unordered mutable map with the given entries.
      * @param <K> key type
      * @param <V> key type
      * @throws NullPointerException if any key is {@code null}.
@@ -719,7 +719,7 @@ public class Maps {
      * @param v8 value for entry 8
      * @param k9 key for entry 9
      * @param v9 value for entry 9
-     * @return An immutable map with the given entries.
+     * @return An unordered mutable map with the given entries.
      * @param <K> key type
      * @param <V> key type
      * @throws NullPointerException if any key is {@code null}.
@@ -765,7 +765,7 @@ public class Maps {
      * @param v9 value for entry 9
      * @param k10 key for entry 10
      * @param v10 value for entry 10
-     * @return An immutable map with the given entries.
+     * @return An unordered mutable map with the given entries.
      * @param <K> key type
      * @param <V> key type
      * @throws NullPointerException if any key is {@code null}.
@@ -814,7 +814,7 @@ public class Maps {
      * @param v10 value for entry 10
      * @param k11 key for entry 11
      * @param v11 value for entry 11
-     * @return An immutable map with the given entries.
+     * @return An unordered mutable map with the given entries.
      * @param <K> key type
      * @param <V> key type
      * @throws NullPointerException if any key is {@code null}.
@@ -866,7 +866,7 @@ public class Maps {
      * @param v11 value for entry 11
      * @param k12 key for entry 12
      * @param v12 value for entry 12
-     * @return An immutable map with the given entries.
+     * @return An unordered mutable map with the given entries.
      * @param <K> key type
      * @param <V> key type
      * @throws NullPointerException if any key is {@code null}.
@@ -897,7 +897,7 @@ public class Maps {
      * Neither the keys nor values may be {@code null}.
      * @param k1 key for entry 1
      * @param v1 value for entry 1
-     * @return An immutable map with the given entries.
+     * @return An ordered immutable map with the given entries.
      * @param <K> key type
      * @param <V> key type
      * @throws NullPointerException if any <em>key or value</em> is {@code null}.
@@ -919,7 +919,7 @@ public class Maps {
      * @param v1 value for entry 1
      * @param k2 key for entry 2
      * @param v2 value for entry 2
-     * @return An immutable map with the given entries.
+     * @return An ordered immutable map with the given entries.
      * @param <K> key type
      * @param <V> key type
      * @throws NullPointerException if any <em>key or value</em> is {@code null}.
@@ -944,7 +944,7 @@ public class Maps {
      * @param v2 value for entry 2
      * @param k3 key for entry 3
      * @param v3 value for entry 3
-     * @return An immutable map with the given entries.
+     * @return An ordered immutable map with the given entries.
      * @param <K> key type
      * @param <V> key type
      * @throws NullPointerException if any <em>key or value</em> is {@code null}.
@@ -972,7 +972,7 @@ public class Maps {
      * @param v3 value for entry 3
      * @param k4 key for entry 4
      * @param v4 value for entry 4
-     * @return An immutable map with the given entries.
+     * @return An ordered immutable map with the given entries.
      * @param <K> key type
      * @param <V> key type
      * @throws NullPointerException if any <em>key or value</em> is {@code null}.
@@ -1003,7 +1003,7 @@ public class Maps {
      * @param v4 value for entry 4
      * @param k5 key for entry 5
      * @param v5 value for entry 5
-     * @return An immutable map with the given entries.
+     * @return An ordered immutable map with the given entries.
      * @param <K> key type
      * @param <V> key type
      * @throws NullPointerException if any <em>key or value</em> is {@code null}.
@@ -1037,7 +1037,7 @@ public class Maps {
      * @param v5 value for entry 5
      * @param k6 key for entry 6
      * @param v6 value for entry 6
-     * @return An immutable map with the given entries.
+     * @return An ordered immutable map with the given entries.
      * @param <K> key type
      * @param <V> key type
      * @throws NullPointerException if any <em>key or value</em> is {@code null}.
@@ -1074,7 +1074,7 @@ public class Maps {
      * @param v6 value for entry 6
      * @param k7 key for entry 7
      * @param v7 value for entry 7
-     * @return An immutable map with the given entries.
+     * @return An ordered immutable map with the given entries.
      * @param <K> key type
      * @param <V> key type
      * @throws NullPointerException if any <em>key or value</em> is {@code null}.
@@ -1114,7 +1114,7 @@ public class Maps {
      * @param v7 value for entry 7
      * @param k8 key for entry 8
      * @param v8 value for entry 8
-     * @return An immutable map with the given entries.
+     * @return An ordered immutable map with the given entries.
      * @param <K> key type
      * @param <V> key type
      * @throws NullPointerException if any <em>key or value</em> is {@code null}.
@@ -1157,7 +1157,7 @@ public class Maps {
      * @param v8 value for entry 8
      * @param k9 key for entry 9
      * @param v9 value for entry 9
-     * @return An immutable map with the given entries.
+     * @return An ordered immutable map with the given entries.
      * @param <K> key type
      * @param <V> key type
      * @throws NullPointerException if any <em>key or value</em> is {@code null}.
@@ -1203,7 +1203,7 @@ public class Maps {
      * @param v9 value for entry 9
      * @param k10 key for entry 10
      * @param v10 value for entry 10
-     * @return An immutable map with the given entries.
+     * @return An ordered immutable map with the given entries.
      * @param <K> key type
      * @param <V> key type
      * @throws NullPointerException if any <em>key or value</em> is {@code null}.
@@ -1252,7 +1252,7 @@ public class Maps {
      * @param v10 value for entry 10
      * @param k11 key for entry 11
      * @param v11 value for entry 11
-     * @return An immutable map with the given entries.
+     * @return An ordered immutable map with the given entries.
      * @param <K> key type
      * @param <V> key type
      * @throws NullPointerException if any <em>key or value</em> is {@code null}.
@@ -1304,7 +1304,7 @@ public class Maps {
      * @param v11 value for entry 11
      * @param k12 key for entry 12
      * @param v12 value for entry 12
-     * @return An immutable map with the given entries.
+     * @return An ordered immutable map with the given entries.
      * @param <K> key type
      * @param <V> key type
      * @throws NullPointerException if any <em>key or value</em> is {@code null}.
@@ -1335,7 +1335,7 @@ public class Maps {
      * The values can be {@code null}, but keys must be non-null.
      * @param k1 key for entry 1
      * @param v1 value for entry 1
-     * @return An immutable map with the given entries.
+     * @return An ordered immutable map with the given entries.
      * @param <K> key type
      * @param <V> key type
      * @throws NullPointerException if any key is {@code null}.
@@ -1357,7 +1357,7 @@ public class Maps {
      * @param v1 value for entry 1
      * @param k2 key for entry 2
      * @param v2 value for entry 2
-     * @return An immutable map with the given entries.
+     * @return An ordered immutable map with the given entries.
      * @param <K> key type
      * @param <V> key type
      * @throws NullPointerException if any key is {@code null}.
@@ -1382,7 +1382,7 @@ public class Maps {
      * @param v2 value for entry 2
      * @param k3 key for entry 3
      * @param v3 value for entry 3
-     * @return An immutable map with the given entries.
+     * @return An ordered immutable map with the given entries.
      * @param <K> key type
      * @param <V> key type
      * @throws NullPointerException if any key is {@code null}.
@@ -1410,7 +1410,7 @@ public class Maps {
      * @param v3 value for entry 3
      * @param k4 key for entry 4
      * @param v4 value for entry 4
-     * @return An immutable map with the given entries.
+     * @return An ordered immutable map with the given entries.
      * @param <K> key type
      * @param <V> key type
      * @throws NullPointerException if any key is {@code null}.
@@ -1441,7 +1441,7 @@ public class Maps {
      * @param v4 value for entry 4
      * @param k5 key for entry 5
      * @param v5 value for entry 5
-     * @return An immutable map with the given entries.
+     * @return An ordered immutable map with the given entries.
      * @param <K> key type
      * @param <V> key type
      * @throws NullPointerException if any key is {@code null}.
@@ -1475,7 +1475,7 @@ public class Maps {
      * @param v5 value for entry 5
      * @param k6 key for entry 6
      * @param v6 value for entry 6
-     * @return An immutable map with the given entries.
+     * @return An ordered immutable map with the given entries.
      * @param <K> key type
      * @param <V> key type
      * @throws NullPointerException if any key is {@code null}.
@@ -1512,7 +1512,7 @@ public class Maps {
      * @param v6 value for entry 6
      * @param k7 key for entry 7
      * @param v7 value for entry 7
-     * @return An immutable map with the given entries.
+     * @return An ordered immutable map with the given entries.
      * @param <K> key type
      * @param <V> key type
      * @throws NullPointerException if any key is {@code null}.
@@ -1552,7 +1552,7 @@ public class Maps {
      * @param v7 value for entry 7
      * @param k8 key for entry 8
      * @param v8 value for entry 8
-     * @return An immutable map with the given entries.
+     * @return An ordered immutable map with the given entries.
      * @param <K> key type
      * @param <V> key type
      * @throws NullPointerException if any key is {@code null}.
@@ -1595,7 +1595,7 @@ public class Maps {
      * @param v8 value for entry 8
      * @param k9 key for entry 9
      * @param v9 value for entry 9
-     * @return An immutable map with the given entries.
+     * @return An ordered immutable map with the given entries.
      * @param <K> key type
      * @param <V> key type
      * @throws NullPointerException if any key is {@code null}.
@@ -1641,7 +1641,7 @@ public class Maps {
      * @param v9 value for entry 9
      * @param k10 key for entry 10
      * @param v10 value for entry 10
-     * @return An immutable map with the given entries.
+     * @return An ordered immutable map with the given entries.
      * @param <K> key type
      * @param <V> key type
      * @throws NullPointerException if any key is {@code null}.
@@ -1690,7 +1690,7 @@ public class Maps {
      * @param v10 value for entry 10
      * @param k11 key for entry 11
      * @param v11 value for entry 11
-     * @return An immutable map with the given entries.
+     * @return An ordered immutable map with the given entries.
      * @param <K> key type
      * @param <V> key type
      * @throws NullPointerException if any key is {@code null}.
@@ -1742,7 +1742,7 @@ public class Maps {
      * @param v11 value for entry 11
      * @param k12 key for entry 12
      * @param v12 value for entry 12
-     * @return An immutable map with the given entries.
+     * @return An ordered immutable map with the given entries.
      * @param <K> key type
      * @param <V> key type
      * @throws NullPointerException if any key is {@code null}.
