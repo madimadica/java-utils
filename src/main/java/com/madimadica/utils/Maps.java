@@ -2205,4 +2205,90 @@ public class Maps {
         return map;
     }
 
+    /**
+     * Creates an unordered immutable copy of the given map.
+     * <br>
+     * The keys must <strong>not</strong> be {@code null}.
+     * <br>
+     * The values may be {@code null}.
+     * @param mapToCopy a non-null map to deep-copy the entries from.
+     * @throws NullPointerException if any key is null.
+     */
+    public static <K, V> Map<K, V> copyOfNullable(Map<? extends K, ? extends V> mapToCopy) {
+        if (mapToCopy.containsKey(null)) {
+           throw new NullPointerException("Map may not contain null keys");
+        }
+        Map<K, V> map = new HashMap<>(mapToCopy);
+        return Collections.unmodifiableMap(map);
+    }
+
+    /**
+     * Creates an unordered mutable copy of the given map.
+     * <br>
+     * The keys must <strong>not</strong> be {@code null}.
+     * <br>
+     * The values may be {@code null}.
+     * @param mapToCopy a non-null map to deep-copy the entries from.
+     * @throws NullPointerException if any key is null.
+     */
+    public static <K, V> Map<K, V> copyOfMutable(Map<? extends K, ? extends V> mapToCopy) {
+        if (mapToCopy.containsKey(null)) {
+           throw new NullPointerException("Map may not contain null keys");
+        }
+        return new HashMap<>(mapToCopy);
+    }
+
+    /**
+     * Creates an ordered immutable copy of the given map.
+     * <br>
+     * The keys must <strong>not</strong> be {@code null}.
+     * <br>
+     * The values may <strong>not</strong> be {@code null}.
+     * @param mapToCopy a non-null map to deep-copy the entries from.
+     * @throws NullPointerException if any key or value is null.
+     */
+    public static <K, V> Map<K, V> copyOfOrdered(Map<? extends K, ? extends V> mapToCopy) {
+        if (mapToCopy.containsKey(null)) {
+           throw new NullPointerException("Map may not contain null keys");
+        }
+        if (mapToCopy.containsValue(null)) {
+           throw new NullPointerException("Map may not contain null values");
+        }
+        Map<K, V> map = new LinkedHashMap<>(mapToCopy);
+        return Collections.unmodifiableMap(map);
+    }
+
+    /**
+     * Creates an ordered immutable copy of the given map.
+     * <br>
+     * The keys must <strong>not</strong> be {@code null}.
+     * <br>
+     * The values may be {@code null}.
+     * @param mapToCopy a non-null map to deep-copy the entries from.
+     * @throws NullPointerException if any key is null.
+     */
+    public static <K, V> Map<K, V> copyOfOrderedNullable(Map<? extends K, ? extends V> mapToCopy) {
+        if (mapToCopy.containsKey(null)) {
+           throw new NullPointerException("Map may not contain null keys");
+        }
+        Map<K, V> map = new LinkedHashMap<>(mapToCopy);
+        return Collections.unmodifiableMap(map);
+    }
+
+    /**
+     * Creates an ordered mutable copy of the given map.
+     * <br>
+     * The keys must <strong>not</strong> be {@code null}.
+     * <br>
+     * The values may be {@code null}.
+     * @param mapToCopy a non-null map to deep-copy the entries from.
+     * @throws NullPointerException if any key is null.
+     */
+    public static <K, V> Map<K, V> copyOfOrderedMutable(Map<? extends K, ? extends V> mapToCopy) {
+        if (mapToCopy.containsKey(null)) {
+           throw new NullPointerException("Map may not contain null keys");
+        }
+        return new LinkedHashMap<>(mapToCopy);
+    }
+
 }

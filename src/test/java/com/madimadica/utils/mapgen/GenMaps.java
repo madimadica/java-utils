@@ -40,6 +40,13 @@ public class GenMaps {
         lines.add("");
         lines.add(ofOrderedMutable());
         lines.add("");
+
+        lines.add(genCopyOf("copyOfNullable", false, true, false));
+        lines.add(genCopyOf("copyOfMutable", true, true, false));
+        lines.add(genCopyOf("copyOfOrdered", false, false, true));
+        lines.add(genCopyOf("copyOfOrderedNullable", false, true, true));
+        lines.add(genCopyOf("copyOfOrderedMutable", true, true, true));
+
         lines.add("}");
         lines.add("");
         Files.writeString(Paths.get("./src/main/java/com/madimadica/utils/Maps.java"), lines.toString());
@@ -160,6 +167,41 @@ public class GenMaps {
         }
         methodSj.add("        return " + returnValue + ";");
         return methodSj.toString();
+    }
+
+    private static String genCopyOf(String methodName, boolean mutable, boolean nullable, boolean ordered) {
+        String mapClass = ordered ? "LinkedHashMap" : "HashMap";
+        var javadoc = getJavadocJoiner();
+        javadoc.add("Creates an " + (ordered ? "ordered" : "unordered") + " " + (mutable ? "mutable" : "immutable") + " copy of the given map.");
+        javadoc.add("<br>");
+        javadoc.add("The keys must <strong>not</strong> be {@code null}.");
+        javadoc.add("<br>");
+        if (nullable) {
+            javadoc.add("The values may be {@code null}.");
+        } else {
+            javadoc.add("The values may <strong>not</strong> be {@code null}.");
+        }
+        javadoc.add("@param mapToCopy a non-null map to deep-copy the entries from.");
+        javadoc.add("@throws NullPointerException if any key " + (nullable ? "" : "or value ") + "is null.");
+        StringBuilder method = new StringBuilder().append(javadoc).append("\n");
+        method.append("    public static <K, V> Map<K, V> ").append(methodName).append("(Map<? extends K, ? extends V> mapToCopy) {")
+                .append("\n        if (mapToCopy.containsKey(null)) {")
+                .append("\n           throw new NullPointerException(\"Map may not contain null keys\");")
+                .append("\n        }");
+        if (!nullable) {
+            method.append("\n        if (mapToCopy.containsValue(null)) {")
+                    .append("\n           throw new NullPointerException(\"Map may not contain null values\");")
+                    .append("\n        }");
+        }
+        method.append("\n        ");
+        String mapConstruct = "new " + mapClass + "<>(mapToCopy)";
+        if (mutable) {
+            method.append("return ").append(mapConstruct).append(';');
+        } else {
+            method.append("Map<K, V> map = ").append(mapConstruct).append(';').append("\n        return Collections.unmodifiableMap(map);");
+        }
+        method.append("\n    }\n");
+        return method.toString();
     }
 
 }
