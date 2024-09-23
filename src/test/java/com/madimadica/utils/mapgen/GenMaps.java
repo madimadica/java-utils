@@ -38,6 +38,8 @@ public class GenMaps {
         lines.add("");
         lines.add(ofOrderedNullable());
         lines.add("");
+        lines.add(ofOrderedMutable());
+        lines.add("");
         lines.add("}");
         lines.add("");
         Files.writeString(Paths.get("./src/main/java/com/madimadica/utils/Maps.java"), lines.toString());
@@ -110,6 +112,19 @@ public class GenMaps {
                     "The values can be {@code null}, but keys must be non-null."
             );
             result.add(generate(i, "ofOrderedNullable", "LinkedHashMap", "Collections.unmodifiableMap(map)", javadoc, true, "An ordered immutable map with the given entries."));
+        }
+        return result.toString();
+    }
+
+    private static String ofOrderedMutable() {
+        StringJoiner result = new StringJoiner("\n\n");
+        for (int i = 1; i <= MAX_ENTRIES; ++i) {
+            List<String> javadoc = List.of(
+                    "Creates an ordered, mutable map with " + i + " " + (i == 1 ? "entry" : "entries") + ".",
+                    "<br>",
+                    "The values can be {@code null}, but keys must be non-null."
+            );
+            result.add(generate(i, "ofOrderedMutable", "LinkedHashMap", "map", javadoc, true, "An ordered mutable map with the given entries."));
         }
         return result.toString();
     }
