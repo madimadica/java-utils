@@ -31,8 +31,12 @@ public class GenMaps {
         lines.add("    public Maps() {}");
         lines.add("");
         lines.add(ofNullable());
+        lines.add("");
         lines.add(ofMutable());
+        lines.add("");
         lines.add(ofOrdered());
+        lines.add("");
+        lines.add(ofOrderedNullable());
         lines.add("");
         lines.add("}");
         lines.add("");
@@ -92,6 +96,19 @@ public class GenMaps {
                     "Neither the keys nor values may be {@code null}."
             );
             result.add(generate(i, "ofOrdered", "LinkedHashMap", "Collections.unmodifiableMap(map)", javadoc, false));
+        }
+        return result.toString();
+    }
+
+    private static String ofOrderedNullable() {
+        StringJoiner result = new StringJoiner("\n\n");
+        for (int i = 1; i <= MAX_ENTRIES; ++i) {
+            List<String> javadoc = List.of(
+                    "Creates an ordered, immutable map with " + i + " " + (i == 1 ? "entry" : "entries") + ".",
+                    "<br>",
+                    "The values can be {@code null}, but keys must be non-null."
+            );
+            result.add(generate(i, "ofOrderedNullable", "LinkedHashMap", "Collections.unmodifiableMap(map)", javadoc, true));
         }
         return result.toString();
     }
